@@ -1,0 +1,6 @@
+# Figure alt text
+
+- `undiagnosis_by_group`: Dot-and-interval chart of the survey-weighted share of people meeting the HbA1c criterion who were never told they have diabetes, for each race and ethnicity group, with 95% intervals and the overall estimate as a dashed reference line. Groups with fewer than 30 respondents or an effective sample under 30 are hollow and labelled as small samples.
+- `sensitivity_by_group`: Dot-and-interval chart of sensitivity against the HbA1c criterion for the race-excluded model trained on the diagnosed label and on the HbA1c label, by group, on a 0 to 100 percent axis. Intervals are wide and overlap in every group.
+- `specificity_cost`: Two panels of dot-and-interval charts of specificity cost by group, defined as specificity of the diagnosed-label model minus specificity of the HbA1c-label model, in percentage points. With race excluded the cost is near zero everywhere; with race included it is positive for non-White groups and slightly negative for Non-Hispanic White respondents.
+- `calibration`: Calibration curves for the diagnosed-label and HbA1c-label race-excluded models, plotting mean predicted risk against the weighted observed rate in ten equal-population bins, with the diagonal as perfect calibration.

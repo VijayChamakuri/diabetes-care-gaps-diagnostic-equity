@@ -1,240 +1,180 @@
-![Python](https://img.shields.io/badge/Python-3.9+-blue)
-![NHANES](https://img.shields.io/badge/Data-NHANES%202017--2018-green)
-![Survey Weighted](https://img.shields.io/badge/Analysis-Survey%20Weighted-orange)
-![Status](https://img.shields.io/badge/Status-Complete-brightgreen)
+# Diabetes Care Gaps & Diagnostic Equity | NHANES 2017-2018
 
-# Diagnostic Label Bias in Diabetes: A Racial Equity Audit Using NHANES 2017–2018
+[![CI](https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
 
-## What This Project Does
+> Survey-weighted analysis of nationally representative NHANES data that quantifies the undiagnosed diabetes gap and tests whether the choice of training label changes model performance across demographic groups.
 
-Clinical machine learning models trained on Electronic Health Record (EHR) labels learn the diagnostic process, not the underlying disease. If that process is inequitably applied across racial/ethnic groups, the model inherits and potentially amplifies that inequity. This project provides a direct, quantified demonstration of that mechanism using nationally representative survey data.
+**Decision question.** If a health system builds a diabetes screening model, does labelling patients by "a doctor told them" versus "their HbA1c meets the ADA criterion" change who the model misses and who it over-flags?
 
-Two logistic regression models are trained on the same features (age, sex, race/ethnicity) but with different labels:
+![Share of people meeting the HbA1c criterion who were never told they have diabetes, by group, with 95% intervals](outputs/figures/undiagnosis_by_group.png)
 
-- **M1**: Label = whether a respondent was ever told by a doctor they have diabetes (`DIQ010=1`)
-- **M2**: Label = whether the respondent meets the ADA criterion for diabetes by HbA1c ≥ 6.5% (`LBXGH ≥ 6.5`)
+**Dashboard:** open [`dashboard/index.html`](dashboard/index.html) in a browser (single offline file, three pages). Screenshots: [overview](dashboard/screenshots/01_care_gap_overview.png), [model tradeoffs](dashboard/screenshots/02_model_tradeoffs.png), [methods and data quality](dashboard/screenshots/03_methods_data_quality.png). A Tableau or Power BI version is not included.
 
-Both models are evaluated against the HbA1c criterion as ground truth. The gap between M1 and M2 performance, and the unequal distribution of that gap across racial groups, is the measure of label bias.
+> **What this does not prove.** The undiagnosis gap is descriptive. It could reflect access to care, screening frequency, clinician behavior, insurance, or measurement, and this data cannot separate them. Nothing here shows clinician bias. The models are deliberately minimal comparisons of two labels, not clinical risk models, and are not ready for deployment. Every subgroup comparison except the one named in advance is exploratory.
 
----
+## Headline findings
 
-## TL;DR
+<!-- BEGIN generated:headline -->
+1. **Undiagnosed diabetes gap.** Of 711 respondents meeting the HbA1c criterion (22.5 million people once weighted), 18.9% (15.5% to 22.8%) were never told they have diabetes. Non-Hispanic Black respondents: 32.2% (23.0% to 43.1%; n = 181, effective n = 141). Non-Hispanic White respondents: 12.8% (7.5% to 21.1%; n = 203, effective n = 105). Difference +19.4 pp (95% CI +7.0 to +31.8 pp, p = 0.004), ratio 2.51 (95% CI 1.34 to 4.69). This is the one pre-specified comparison.
+2. **With race excluded, the training label barely changes the primary age-and-sex model.** AUC against the HbA1c criterion is 0.758 for the diagnosed label and 0.756 for the HbA1c label (difference +0.001, 95% CI 0.000 to +0.003, bootstrap p = 0.156). Overall specificity cost +0.7 pp (95% CI -0.3 to +1.8 pp).
+3. **In this comparison the label matters when race is a model input.** With race included, the specificity cost is +10.0 pp for Non-Hispanic Black respondents (95% CI +8.6 to +11.2 pp) and -1.9 pp for Non-Hispanic White respondents (95% CI -3.7 to -0.1 pp).
+<!-- END generated:headline -->
 
-> Among individuals meeting the HbA1c criterion for diabetes, **Non-Hispanic Black respondents are undiagnosed at 2.5× the rate of Non-Hispanic White respondents** (32.2% vs. 12.8%, p = 0.005, NHANES 2017–2018, n=711 HbA1c-positive respondents, survey-weighted).
->
-> Switching from a doctor-diagnosed label to the HbA1c criterion as a model training target does not meaningfully close sensitivity gaps — the between-group sensitivity difference remains small (1.8pp for Non-Hispanic Black under cross-evaluation). Instead, the primary modeling difference is in specificity: the false-positive burden of adopting the HbA1c criterion falls almost entirely on Non-Hispanic Black and Other Hispanic respondents (+16–17pp) versus +4–6pp for Non-Hispanic White respondents.
+## What this means for decisions
 
----
+| Audience | Metric to watch | Action | How to evaluate it |
+|---|---|---|---|
+| Population health team | Weighted undiagnosed share by group, with denominators | Monitor screening reach and follow-up in groups with a higher estimated undiagnosed share | Repeat the estimate on the next NHANES cycle or on local data with the same definitions |
+| Analytics governance | False-positive burden and subgroup uncertainty when the label changes | Do not swap a clinical label for a biochemical one without quantifying both by group | Report the specificity cost with intervals before any label change |
+| Model risk | Subgroup sensitivity, calibration and effective sample size | Require subgroup calibration, a threshold analysis and small-sample warnings before deployment; treat race as a model input only with explicit justification | Run the sensitivity analyses in this repository on the candidate model |
 
-## Data
+The observed gap is not evidence that clinicians treat groups differently.
 
-**Source**: [NHANES 2017–2018](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017), National Center for Health Statistics, CDC.
+## Data and cohort
 
-Four XPT files are required (place in the same directory as `analysis.py`):
+Source: [NHANES 2017-2018](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017), National Center for Health Statistics. The pipeline downloads seven public files from CDC, records source URL, retrieval date, byte size and SHA-256 in [`data/data_manifest.json`](data/data_manifest.json), checks the columns it needs, and refuses to continue if a file changed. Raw files are never committed. Every variable is described in the [data dictionary](docs/data_dictionary.md).
 
-| File | Contents |
-|------|----------|
-| `DEMO_J.XPT` | Demographics, survey weights (`WTMEC2YR`), design variables (`SDMVPSU`, `SDMVSTRA`) |
-| `DIQ_J.XPT` | Diabetes questionnaire (`DIQ010`) |
-| `GHB_J.XPT` | Glycohemoglobin / HbA1c (`LBXGH`) |
-| `GLU_J.XPT` | Fasting glucose (`LBXGLU`) — included for completeness; not used in primary analysis |
+<!-- BEGIN generated:cohort_flow -->
+| Step | Criterion | Remaining | Removed |
+|---|---|---|---|
+| 1 | NHANES 2017-2018 participants (DEMO_J) | 9,254 | 0 |
+| 2 | Examined, with a positive MEC exam weight | 8,704 | 550 |
+| 3 | Meets the minimum age | 8,704 | 0 |
+| 4 | Valid diabetes questionnaire answer (yes, no or borderline) | 8,362 | 342 |
+| 5 | Borderline answers handled per the analysis variant | 8,187 | 175 |
+| 6 | HbA1c measured | 5,873 | 2,314 |
+| 7 | Known race and ethnicity (analysis cohort) | 5,873 | 0 |
+<!-- END generated:cohort_flow -->
 
-**Download**: Files are publicly available at `https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/`
+Cohort rules live in SQL ([`sql/cohort.sql`](sql/cohort.sql)) and are checked by [`sql/data_quality.sql`](sql/data_quality.sql) and [`sql/cohort_validation.sql`](sql/cohort_validation.sql) on every run. Refused and do-not-know answers are treated as missing, never as "no".
 
-**Survey design**: NHANES uses stratified multi-stage probability sampling with deliberate oversampling of Non-Hispanic Black (≈1.85×), Non-Hispanic Asian (≈2.22×), and Mexican American respondents relative to their population share. All estimates use `WTMEC2YR` weights with Taylor linearization variance estimation (`SDMVPSU`, `SDMVSTRA`) to produce nationally representative results.
+### Undiagnosed diabetes by group
 
----
+Denominator: respondents whose HbA1c meets the ADA criterion. "Never told" means they answered no to being told by a doctor that they have diabetes. Weighted denominators are population estimates; respondent counts are sample sizes. Effective n is the Kish effective sample size.
 
-## Analysis Population
+<!-- BEGIN generated:undiagnosis -->
+| Group | Respondents | Weighted denominator | Effective n | Never told | 95% CI |
+|---|---|---|---|---|---|
+| Non-Hispanic White | 203 | 12.8 million | 105 | 12.8% | 7.5% to 21.1% |
+| Non-Hispanic Black | 181 | 3.2 million | 141 | 32.2% | 23.0% to 43.1% |
+| Mexican American | 112 | 2.2 million | 71 | 22.7% | 12.9% to 36.7% |
+| Other Hispanic | 74 | 1.5 million | 53 | 31.5% | 13.8% to 56.9% |
+| Non-Hispanic Asian | 102 | 1.6 million | 89 | 27.7% | 18.4% to 39.5% |
+| Other/Multiracial (small sample) | 39 | 1.2 million | 16 | 13.3% | 5.6% to 28.7% |
+| All groups | 711 | 22.5 million | 271 | 18.9% | 15.5% to 22.8% |
+<!-- END generated:undiagnosis -->
 
-| Criterion | N |
-|-----------|---|
-| NHANES 2017–2018 total | 9,254 |
-| Exclude: no MEC exam weight (WTMEC2YR = 0 or missing) | — |
-| Exclude: missing HbA1c (LBXGH) | — |
-| Exclude: Borderline diabetes response (DIQ010 = 3, N=184) | — |
-| **Main analysis sample** | **5,877** |
+Each group against the reference. Only the first row was pre-specified; the others are exploratory and carry Holm-adjusted p-values.
 
-HbA1c-positive (≥ 6.5%) subpopulation: 711
+<!-- BEGIN generated:contrasts -->
+| Group vs. Non-Hispanic White | Difference | 95% CI | Ratio | p | Holm-adjusted p | Analysis |
+|---|---|---|---|---|---|---|
+| Non-Hispanic Black | +19.4 pp | +7.0 to +31.8 pp | 2.51 | p = 0.004 | p = 0.022 | confirmatory |
+| Mexican American | +9.8 pp | -5.9 to +25.6 pp | 1.77 | p = 0.202 | p = 0.404 | exploratory |
+| Other Hispanic | +18.6 pp | -4.2 to +41.5 pp | 2.45 | p = 0.103 | p = 0.308 | exploratory |
+| Non-Hispanic Asian | +14.9 pp | +2.1 to +27.7 pp | 2.16 | p = 0.025 | p = 0.102 | exploratory |
+| Other/Multiracial | +0.5 pp | -10.5 to +11.4 pp | 1.04 | p = 0.927 | p = 0.927 | exploratory |
+<!-- END generated:contrasts -->
 
-| Group | N | HbA1c+ | Diagnosed |
-|-------|---|--------|-----------|
-| Non-Hispanic White | 2,023 | 203 | 285 |
-| Non-Hispanic Black | 1,312 | 181 | 182 |
-| Mexican American | 858 | 112 | 123 |
-| Other Hispanic | 547 | 74 | 71 |
-| Non-Hispanic Asian | 796 | 102 | 106 |
-| Other/Multiracial | 341 | 39 | 46 |
-| **Total** | **5,877** | **711** | — |
+Age-standardized estimates, weighted baseline characteristics and missingness by group are in `outputs/tables/`.
 
----
+## Method summary
 
-## Key Findings
+- **Design.** All estimates use the exam weight, strata and PSUs. Subgroups are subpopulations of the full design, and uncertainty is Taylor linearization with logit intervals. The full rationale, including why the fasting weight is not used, is in [docs/methods.md](docs/methods.md).
+- **Models.** Two labels on identical inputs: `diagnosed` (told by a doctor) and `hba1c_pos` (meets the criterion). HbA1c is never an input. The primary models use age and sex only; race-included, extended-feature and gradient-boosting versions are sensitivity analyses.
+- **Validation.** Repeated stratified cross-validation grouped by stratum and PSU, with the classification threshold chosen inside each training fold. Intervals come from a Rao-Wu rescaled PSU bootstrap.
+- **Independent check.** Python estimates are compared with R's `survey` package.
 
-### Finding 1 — Undiagnosis Rate Gap
+## Validation and robustness
 
-Among respondents meeting the HbA1c criterion (≥ 6.5%), the fraction who report never being told they have diabetes:
+### Model comparison
 
-| Group | Undiagnosed | 95% CI |
-|-------|-------------|--------|
-| Non-Hispanic White | 12.8% | 6.2%–19.5% |
-| Non-Hispanic Black | **32.2%** | 22.1%–42.4% |
-| Mexican American | 22.7% | 10.8%–34.6% |
-| Other Hispanic | 31.5% | 8.7%–54.2% |
-| Non-Hispanic Asian | 27.7% | 17.1%–38.4% |
+Both models are scored against the HbA1c criterion. A specificity cost is the diagnosed-label model's specificity minus the HbA1c-label model's, so a positive cost means more false positives when training on the HbA1c label.
 
-**Non-Hispanic Black vs. Non-Hispanic White**: +19.4 percentage points (95% CI: +7.1 to +31.6), ratio 2.51×, p = 0.0055.
-
-Weights: `WTMEC2YR`. Variance: Taylor linearization with centered lonely-PSU correction.
-
-*Language note: "meeting the HbA1c criterion" is used throughout, not "objectively diabetic." The HbA1c criterion is one of three ADA diagnostic criteria; its reliability may vary for individuals with sickle cell trait (see Limitations).*
-
-![Undiagnosis rate by group with 95% CIs](outputs/chart3_undiagnosis_rate.png)
-
----
-
-### Finding 2 — Model Performance: AUC
-
-Both models evaluated against HbA1c ≥ 6.5% as ground truth. 95% CIs from full PSU bootstrap (B=500; entire dataset resampled at PSU level per replicate — both training and test vary).
-
-| Model | Point AUC | 95% CI (PSU bootstrap, B=500) |
-|-------|-----------|-------------------------------|
-| M1 (Diagnosed label) | 0.763 | 0.719–0.806 |
-| M2 (HbA1c criterion) | 0.760 | 0.722–0.812 |
-
-The CIs overlap substantially. The models are **not statistically distinguishable** on overall discriminative performance. When both models are evaluated against the HbA1c criterion as ground truth, M1 (trained on the diagnosed label) scores marginally higher AUC than M2 (0.763 vs. 0.760, non-significant). A model that learned diagnostic patterns — including their biases — is not obviously worse at predicting biochemical disease status. AUC is reported as context only; the primary finding is in specificity, not sensitivity.
-
----
-
-### Finding 3 — Subgroup Sensitivity (Cross-Evaluation on HbA1c Truth)
-
-Both models evaluated against HbA1c ≥ 6.5% as ground truth. Gap column: positive = lower sensitivity than Non-Hispanic White (model misses more actual diabetics in that group).
-
-The sensitivity gap between groups is small under cross-evaluation; the primary modeling finding is in specificity, not sensitivity.
-
-**M1 — Trained on Diagnosed Label, evaluated on HbA1c truth**
-
-| Group | N (test) | Sensitivity | Gap vs. NHWhite |
-|-------|----------|-------------|-----------------|
-| Non-Hispanic White | 601 | 84.7% | (ref) |
-| Non-Hispanic Black | 398 | 82.8% | +1.8pp |
-| Mexican American | 254 | 88.0% | −3.3pp |
-| Other Hispanic | 158 | 82.1% | +2.6pp |
-| Non-Hispanic Asian | 237 | 94.7% | −10.0pp |
-
-**M2 — Trained on HbA1c Criterion, evaluated on HbA1c truth**
-
-| Group | N (test) | Sensitivity | Gap vs. NHWhite |
-|-------|----------|-------------|-----------------|
-| Non-Hispanic White | 601 | 88.5% | (ref) |
-| Non-Hispanic Black | 398 | 85.7% | +2.9pp |
-| Mexican American | 254 | 88.0% | +0.6pp |
-| Other Hispanic | 158 | 100.0% | −11.5pp |
-| Non-Hispanic Asian | 237 | 96.4% | −7.9pp |
-
-![Sensitivity by group, both models side by side](outputs/chart1_sensitivity_by_group.png)
-
----
-
-### Finding 4 — Specificity Cost
-
-When switching from M1 to M2, specificity drops for all groups. This specificity cost represents the increase in false-positive burden — people without diabetes who would be flagged by the model.
-
-| Group | M1 Specificity | M2 Specificity | Cost (pp) |
-|-------|---------------|----------------|-----------|
-| Non-Hispanic White | 61.3% | 57.1% | **+4.2pp** |
-| Non-Hispanic Black | 60.2% | 43.8% | **+16.4pp** |
-| Mexican American | 59.1% | 53.3% | +5.8pp |
-| Other Hispanic | 72.7% | 56.0% | +16.8pp |
-| Non-Hispanic Asian | 55.4% | 50.2% | +5.2pp |
-
-The false-positive burden of adopting the "fairer" label criterion falls almost entirely on Non-Hispanic Black and Other Hispanic respondents (+16–17pp), versus +4–6pp for all other groups.
-
-![Specificity cost by group](outputs/chart2_specificity_cost.png)
-
----
-
-## Borderline Sensitivity Analysis
-
-Respondents reporting "borderline" diabetes (DIQ010=3, N=184) are excluded from the main analysis. Sensitivity analyses test robustness to this decision.
-
-| Analysis | N | Black undiag. | White undiag. | Gap | Ratio | p-value |
-|----------|---|--------------|--------------|-----|-------|---------|
-| Main (Borderline excluded) | 5,877 | 32.2% | 12.8% | +19.4pp | 2.51× | 0.0055 |
-| Borderline as POSITIVE | 6,045 | 30.2% | 12.1% | +18.0pp | 2.49× | 0.0065 |
-| Borderline as NEGATIVE | 6,045 | 36.5% | 17.6% | +18.9pp | 2.07× | 0.0071 |
-
-Direction is invariant. All three analyses are statistically significant. The main result is robust to any assumption about borderline cases.
-
----
-
-## What This Project Demonstrates
-
-**(a)** Among individuals meeting the HbA1c criterion for diabetes, Non-Hispanic Black respondents are undiagnosed at 2.51× the rate of Non-Hispanic White respondents (32.2% vs. 12.8%, p = 0.0055).
-
-**(b)** A model trained on the diagnosed label shows a small sensitivity gap vs. the HbA1c-criterion model when both are evaluated on HbA1c truth (1.8pp for Non-Hispanic Black). The primary modeling difference is in specificity, not sensitivity.
-
-**(c)** Switching from the diagnosed label to the HbA1c criterion as a training target produces a specificity cost that falls almost entirely on Non-Hispanic Black and Other Hispanic respondents (+16–17pp versus +4–6pp for other groups).
-
-**(d)** The mechanism producing the undiagnosis rate gap — whether clinician diagnostic behavior, differential access to screening, differential screening frequency, or some combination — **cannot be determined from this data**. No causal or behavioral claim is made.
-
----
-
-## Methods
-
-**Features**: Age (`RIDAGEYR`), sex (`RIAGENDR`), race/ethnicity dummies (`RIDRETH3`; Non-Hispanic White = reference). BMI (`BMXBMI`) was excluded pending verification of the BMX_J.XPT file.
-
-**Model**: Survey-weighted logistic regression (`sklearn.linear_model.LogisticRegression`, `C=1.0`, `lbfgs` solver), `sample_weight=WTMEC2YR`.
-
-**Threshold**: Youden-optimal threshold selected on weighted training predictions.
-
-**Train/test split**: 70/30, stratified on HbA1c label, random seed 42.
-
-**AUC confidence intervals**: Full PSU bootstrap (B=500). Each replicate resamples PSUs with replacement within strata, then re-splits, re-trains, and re-tests. Both training and test sets vary per replicate. This is the correct method for complex survey data; bootstrap on the test set only (ignoring survey design) will produce CIs that are materially too narrow — the exact inflation factor depends on the specific estimate and subgroup.
-
-**Variance estimation**: Taylor linearization for proportions, using `SDMVPSU` (masked pseudo-PSU) and `SDMVSTRA` (masked pseudo-stratum). Lonely-PSU strata (single PSU per stratum) use the centered correction: variance contribution = (t_h1 − grand_mean)², preventing both zero-contribution and degenerate width. This matches the default behavior of R's `survey` package with `centered` option.
-
-**Survey weights**: `WTMEC2YR` throughout. `WTSAF2YR` (fasting subsample weight) was not used; fasting glucose is secondary and its use would reduce N substantially.
-
----
-
-## Limitations
-
-1. **HbA1c and sickle cell trait**: Sickle cell trait can artificially elevate HbA1c in some Non-Hispanic Black individuals, potentially overstating the undiagnosis rate in that group. No sickle cell variable is available in the four files used. Direction of bias is conservative — if sickle cell inflation is present, the true gap may be *smaller* than reported.
-
-2. **Single criterion**: HbA1c ≥ 6.5% is one of three ADA diagnostic criteria (alongside fasting plasma glucose ≥ 126 mg/dL and 2-hour plasma glucose ≥ 200 mg/dL on OGTT). Fasting glucose cross-validation requires the FASTQX_J file (for fasting hours) and is not included in this analysis.
-
-3. **Features**: Race/ethnicity, age, and sex only. BMI was excluded. A richer feature set would likely change point estimates but not the direction of the undiagnosis rate finding, which is descriptive rather than model-dependent.
-
-4. **Borderline cases**: N=184 excluded. Sensitivity analyses (Section above) show the main result is invariant to this decision.
-
-5. **Mechanism unknown**: The project measures *that* a gap exists, not *why*. Differential access, differential screening frequency, clinician decision patterns, and patient-side factors are all candidate explanations. Distinguishing between them requires data not present in NHANES.
-
----
-
-## Reproducing the Results
+<!-- BEGIN generated:models -->
+| Model | Role | AUC, diagnosed label | AUC, HbA1c label | AUC difference (95% CI) | Overall specificity cost (95% CI) |
+|---|---|---|---|---|---|
+| Age and sex, race excluded (primary benchmark) | primary | 0.758 | 0.756 | +0.001 (0.000 to +0.003) | +0.7 pp (-0.3 to +1.8 pp) |
+| Age, sex and race dummies (sensitivity) | sensitivity | 0.763 | 0.765 | -0.002 (-0.010 to +0.005) | +1.4 pp (-0.6 to +3.2 pp) |
+| Adds BMI, family history, insurance and a routine care place; race excluded | sensitivity | 0.819 | 0.819 | -0.001 (-0.006 to +0.004) | +1.6 pp (+0.2 to +3.1 pp) |
+| Gradient boosting on the extended features, to test whether nonlinearity adds value | comparison | 0.811 | 0.809 | +0.002 (-0.008 to +0.013) | -2.2 pp (-3.7 to -0.8 pp) |
+<!-- END generated:models -->
+
+![Specificity cost by group for the race-excluded and race-included models](outputs/figures/specificity_cost.png)
+
+### Subgroup performance, primary model
+
+<!-- BEGIN generated:subgroups -->
+| Group | HbA1c positives (effective n) | Sensitivity, diagnosed label | Sensitivity, HbA1c label | Specificity, diagnosed label | Specificity, HbA1c label |
+|---|---|---|---|---|---|
+| Non-Hispanic White | 203 (105) | 87.2% (80% to 97%) | 88.9% (82% to 97%) | 53.1% | 52.2% |
+| Non-Hispanic Black | 181 (141) | 76.1% (67% to 87%) | 78.2% (68% to 88%) | 65.9% | 65.2% |
+| Mexican American | 112 (71) | 66.2% (53% to 80%) | 67.2% (55% to 81%) | 75.7% | 75.8% |
+| Other Hispanic | 74 (53) | 84.5% (74% to 100%) | 86.5% (77% to 100%) | 67.4% | 67.7% |
+| Non-Hispanic Asian | 102 (89) | 87.9% (80% to 96%) | 89.7% (81% to 99%) | 67.3% | 66.4% |
+| Other/Multiracial (small sample) | 39 (16) | 87.8% (75% to 94%) | 88.8% (76% to 95%) | 65.6% | 64.8% |
+| All groups | 711 (271) | 83.5% (78% to 89%) | 85.2% (80% to 90%) | 59.1% | 58.4% |
+<!-- END generated:subgroups -->
+
+![Sensitivity by group under both labels with 95% intervals](outputs/figures/sensitivity_by_group.png)
+
+Intervals are wide and small groups are flagged. See the [calibration figure](outputs/figures/calibration.png) and `outputs/tables/brier_by_group.csv` for calibration and weighted Brier scores by group.
+
+### Robustness of the undiagnosis gap
+
+<!-- BEGIN generated:robustness -->
+| Analysis | Cohort | HbA1c positive | Black | White | Difference (95% CI) | Ratio | p |
+|---|---|---|---|---|---|---|---|
+| Main analysis | 5,873 | 711 | 32.2% | 12.8% | +19.4 pp (+7.0 to +31.8 pp) | 2.51 | p = 0.004 |
+| Complete cases for extended covariates | 4,700 | 668 | 30.1% | 13.5% | +16.6 pp (+5.2 to +28.0 pp) | 2.23 | p = 0.007 |
+| Borderline answers counted as diagnosed | 6,041 | 751 | 30.2% | 12.1% | +18.0 pp (+6.4 to +29.7 pp) | 2.49 | p = 0.005 |
+| Borderline answers counted as not diagnosed | 6,041 | 751 | 36.5% | 17.6% | +18.9 pp (+5.3 to +32.5 pp) | 2.07 | p = 0.010 |
+| Adults 18 and older only | 5,096 | 706 | 32.1% | 13.0% | +19.0 pp (+6.9 to +31.1 pp) | 2.46 | p = 0.004 |
+<!-- END generated:robustness -->
+
+### Cross-check against R
+
+<!-- BEGIN generated:crosscheck -->
+52 of 52 Python estimates match R `survey` within 1e-06 (largest absolute difference 2.6e-10). Table: `outputs/tables/r_python_crosscheck.csv`.
+<!-- END generated:crosscheck -->
+
+## Reproduce
 
 ```bash
-pip install -r requirements.txt
-
-# Place DEMO_J.XPT, DIQ_J.XPT, GHB_J.XPT, GLU_J.XPT in the data/ folder, then:
-python analysis.py
+git clone https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit.git && cd diabetes-diagnostic-bias-audit
+uv sync --extra dev
+uv run python -m nhanes_diabetes all
 ```
 
-Expected runtime: approximately 3–5 minutes (dominated by 500-replicate PSU bootstrap).
+That command downloads and verifies the data, builds the cohort, runs the analysis, cross-checks against R when `Rscript` with the `survey` package is available, regenerates figures and the generated README blocks, and rebuilds the dashboard. Stages can be run alone: `download`, `build-cohort`, `analyze`, `crosscheck`, `report`, `dashboard`. Requires Python 3.11 or 3.12 and `uv`. Fixed seeds make every table reproducible. `make test` runs lint, type checks and tests; `make check-readme` fails if the README drifts from `outputs/tables`.
 
-All random seeds are fixed (`numpy.random.seed(42)`, train/test split `random_state=42`). Results are fully reproducible.
+## Limitations and ethics
 
----
+- HbA1c can read high in some people with sickle cell trait, which would overstate undiagnosis in some groups. No such variable is available.
+- HbA1c is one of three ADA criteria; fasting glucose is not used.
+- The models use a few coarse inputs. Extended inputs (BMI, family history, insurance, a routine place for care) come from the same survey, and access-to-care inputs are themselves part of the diagnostic process.
+- Bootstrap intervals for model metrics reflect survey-design variability on out-of-fold predictions, not refitting variability.
+- Small groups have wide intervals and are flagged rather than hidden. Other/Multiracial is a pooled category, not a population.
+- Using race as a predictor while auditing performance by race needs explicit justification; that is why it is a sensitivity analysis here.
 
-## Project Context
+## Repository map
 
-This project was motivated by a documented pattern in clinical ML: models trained on clinical labels inherit and amplify the biases embedded in those labels. The NHANES dataset is particularly well-suited to quantify this because it contains both doctor-reported diagnosis (the biased label) and a biochemical criterion (HbA1c) that is independent of whether a clinician ever acted on it.
-
-NHANES uses a complex stratified multi-stage design with deliberate oversampling of minority groups. Confidence intervals that ignore the survey design will be materially too narrow — the exact inflation factor depends on the specific estimate and subgroup. The variance estimation in this analysis accounts for this using Taylor linearization.
-
----
+```text
+src/nhanes_diabetes/   download, cohort (SQL), survey, models, metrics, plots, report, dashboard, cli
+sql/                   cohort, data quality, cohort validation, group summary
+configs/analysis.yml   every parameter in one place
+r/validation.R         independent survey-package check
+outputs/tables/        every number the README and dashboard cite
+outputs/figures/       PNG and SVG figures with alt text
+dashboard/             offline three-page dashboard and screenshots
+docs/                  methods, data dictionary
+tests/                 unit, integration and end-to-end tests on a synthetic fixture
+```
 
 ## Citation
 
-National Center for Health Statistics. National Health and Nutrition Examination Survey Data. Hyattsville, MD: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention, 2017–2018. https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
+National Center for Health Statistics. National Health and Nutrition Examination Survey Data, 2017-2018. Hyattsville, MD: U.S. Department of Health and Human Services, Centers for Disease Control and Prevention. https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?BeginYear=2017
+
+Code is MIT licensed. See [CONTRIBUTING](CONTRIBUTING.md).

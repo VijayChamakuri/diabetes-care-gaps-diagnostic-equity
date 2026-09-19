@@ -1,0 +1,87 @@
+{
+  "code_commit": "0fc4a7ad68c18268cad6e98fcdd02bf0edf3fdfa",
+  "generated_at": "2026-09-19T05:18:21+00:00",
+  "outputs": {
+    "age_standardized_undiagnosis.csv": "e6e20b6ae786527bfa2c04ba855b797b6e4eb7b3e322387f8a8cf2b3a7b65c0b",
+    "auc.csv": "cdde49eee400112291952e962995a78f7ec6b5b0f5855502af2b4ac9690a4fd8",
+    "auc_difference.csv": "02f53653d7495635526fcf44cc57b27194c59216b65b0512027859ac75000fb3",
+    "baseline_characteristics.csv": "f6ee170629741826e0b3e49b8c86814ad857de3bc80a54589d2c38b2757dedaf",
+    "brier_by_group.csv": "2703b28c0224ef86b9be65e2ff08e74b6b2538cda84a5bfaf5219c3440865d4c",
+    "calibration.csv": "1b306ec9ef7d22372f4b0ab09012767f10233873aa327b8364c9c12b73e66b29",
+    "cohort_attrition.csv": "c8feec3c150fc7c09105ec559a1a48a5d494f6435db126ed63818ec02a3f522d",
+    "data_quality.csv": "2781d988c0d16a8f183b8de0a89099dc19c617a866c31ada95fc5ec2e313b3f2",
+    "feature_specification.csv": "9fd30b693329fb65d26c237b3f93531bee368d32788cacb6cd1f4800736fa38a",
+    "group_summary.csv": "89864e31a05c495fd71191e0cfce26b916c537b1e3b16a3555525af10314f60d",
+    "missingness_by_group.csv": "c3edb93a03d3f9516cda09a1d06c9124f7106c1e538a91a29483f0a2a1bca44b",
+    "model_specification.csv": "5f80451b89379a0b4b8f78e243c7d4eb97341aab6abac9a012e78b73c88590f6",
+    "r_estimates.csv": "07f1d3d2520d74a52cccdc80eaf8d2fd714628298cff13058a4d4a6ca7292bde",
+    "r_python_crosscheck.csv": "c7ae2eda02f1beff660d26139f2acd701c38ad4f9a69f712cff7c009e84c895b",
+    "robustness.csv": "8ec7878ff8fd018fd2aa10176db994783bd4e87c71429babc97f835eca1f03d4",
+    "sensitivity_gap.csv": "b81e2729ee1b441a82ec6003f666d992d2726590f8a43369879d898d78aca936",
+    "specificity_cost.csv": "8a56e5df8629e04b0bd641fb36aec6b096543660a73e67cdbf39ffbd9bbf6dce",
+    "subgroup_metrics.csv": "c80369ce3623d76416ca36bc1c02239a8983490e231982bd75871cd2f6f597b0",
+    "thresholds.csv": "78bf0a67f8b7229bf92a3b3e214e0b52efd58c7daccf2dc06b054eea806d02c3",
+    "undiagnosis_contrasts.csv": "bf9112dacfa2833bcb49121045d1c10a807502374151ec095cdd5b000d2c5ce4",
+    "undiagnosis_estimates.csv": "3a141f45fde50b20b2481c5d711863f88d6935e91d984f2e582f89f9f347c8e9",
+    "weighted_prevalence.csv": "fc711bde40ee53fb7aed4761a6ccfdfad757e3e929ae3d097ba2ffb0cdf841fd"
+  },
+  "packages": {
+    "duckdb": "1.5.5",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.3",
+    "pandas": "2.3.3",
+    "pyreadstat": "1.3.6",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1"
+  },
+  "python": "3.12.13",
+  "sample_counts": {
+    "analysis_cohort": 5873,
+    "participants": 9254
+  },
+  "seed": 20260919,
+  "source_files": {
+    "BMX_J": {
+      "bytes": 1466000,
+      "retrieved_at": "2026-09-19",
+      "sha256": "8d675e42d8826ac98714b2c3dd4c5138a5e353fb4424f7eff5e6db4a01ce838a"
+    },
+    "DEMO_J": {
+      "bytes": 3412720,
+      "retrieved_at": "2026-09-19",
+      "sha256": "c0b46e0345ea19404928656277c8b0d10b0cca348a9b2fe4fc3c67e8b7ee73ec"
+    },
+    "DIQ_J": {
+      "bytes": 3851840,
+      "retrieved_at": "2026-09-19",
+      "sha256": "1ecbf5360dfc331d1efbf32198553dc30e9a1f4cff0a907ed30ca72bac797f89"
+    },
+    "GHB_J": {
+      "bytes": 103520,
+      "retrieved_at": "2026-09-19",
+      "sha256": "35f07094573a0061a03ed609a5a363b34eb1b1c7065d1623b43d72e132a8a654"
+    },
+    "HIQ_J": {
+      "bytes": 1187520,
+      "retrieved_at": "2026-09-19",
+      "sha256": "96dfdd98507ea6dc67cb2c2b6999da3c035f3f8a9a87cf34756fe30762387860"
+    },
+    "HUQ_J": {
+      "bytes": 742480,
+      "retrieved_at": "2026-09-19",
+      "sha256": "0d8814ca6a72c003eb89885a3a24dcff3b475dfed454089cf4890f9ab9da06d2"
+    },
+    "MCQ_J": {
+      "bytes": 5420800,
+      "retrieved_at": "2026-09-19",
+      "sha256": "79c50c805a377fcd61d44fae8b86a16af0a5741f8b1aeebda918d7d743c68f98"
+    }
+  },
+  "validation": {
+    "auc_bootstrap_replicates": 500,
+    "bootstrap_replicates": 500,
+    "folds": 5,
+    "inner_folds": 3,
+    "repeats": 5
+  }
+}

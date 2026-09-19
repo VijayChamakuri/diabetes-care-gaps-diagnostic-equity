@@ -1,0 +1,80 @@
+{
+  "files": {
+    "BMX_J": {
+      "bytes": 1466000,
+      "columns_verified": [
+        "SEQN",
+        "BMXBMI"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "8d675e42d8826ac98714b2c3dd4c5138a5e353fb4424f7eff5e6db4a01ce838a",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/BMX_J.xpt"
+    },
+    "DEMO_J": {
+      "bytes": 3412720,
+      "columns_verified": [
+        "SEQN",
+        "RIDAGEYR",
+        "RIAGENDR",
+        "RIDRETH3",
+        "WTMEC2YR",
+        "SDMVPSU",
+        "SDMVSTRA"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "c0b46e0345ea19404928656277c8b0d10b0cca348a9b2fe4fc3c67e8b7ee73ec",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DEMO_J.xpt"
+    },
+    "DIQ_J": {
+      "bytes": 3851840,
+      "columns_verified": [
+        "SEQN",
+        "DIQ010"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "1ecbf5360dfc331d1efbf32198553dc30e9a1f4cff0a907ed30ca72bac797f89",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/DIQ_J.xpt"
+    },
+    "GHB_J": {
+      "bytes": 103520,
+      "columns_verified": [
+        "SEQN",
+        "LBXGH"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "35f07094573a0061a03ed609a5a363b34eb1b1c7065d1623b43d72e132a8a654",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/GHB_J.xpt"
+    },
+    "HIQ_J": {
+      "bytes": 1187520,
+      "columns_verified": [
+        "SEQN",
+        "HIQ011"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "96dfdd98507ea6dc67cb2c2b6999da3c035f3f8a9a87cf34756fe30762387860",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/HIQ_J.xpt"
+    },
+    "HUQ_J": {
+      "bytes": 742480,
+      "columns_verified": [
+        "SEQN",
+        "HUQ030"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "0d8814ca6a72c003eb89885a3a24dcff3b475dfed454089cf4890f9ab9da06d2",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/HUQ_J.xpt"
+    },
+    "MCQ_J": {
+      "bytes": 5420800,
+      "columns_verified": [
+        "SEQN",
+        "MCQ300C"
+      ],
+      "retrieved_at": "2026-09-19",
+      "sha256": "79c50c805a377fcd61d44fae8b86a16af0a5741f8b1aeebda918d7d743c68f98",
+      "source_url": "https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/MCQ_J.xpt"
+    }
+  },
+  "schema_version": 1
+}

@@ -1,0 +1,40 @@
+# Single source of truth for the NHANES diabetes care-gap analysis.
+data:
+  base_url: https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles
+  raw_dir: data/raw
+  processed_dir: data/processed
+  manifest: data/data_manifest.json
+  # file -> columns the pipeline reads. A missing column fails download with a clear message.
+  files:
+    DEMO_J: [SEQN, RIDAGEYR, RIAGENDR, RIDRETH3, WTMEC2YR, SDMVPSU, SDMVSTRA]
+    DIQ_J: [SEQN, DIQ010]
+    GHB_J: [SEQN, LBXGH]
+    BMX_J: [SEQN, BMXBMI]
+    MCQ_J: [SEQN, MCQ300C]
+    HIQ_J: [SEQN, HIQ011]
+    HUQ_J: [SEQN, HUQ030]
+
+analysis:
+  hba1c_threshold: 6.5        # ADA criterion, percent
+  seed: 20260919
+  reference_group: Non-Hispanic White
+  comparison_group: Non-Hispanic Black   # pre-specified confirmatory contrast
+  group_order:
+    - Non-Hispanic White
+    - Non-Hispanic Black
+    - Mexican American
+    - Other Hispanic
+    - Non-Hispanic Asian
+    - Other/Multiracial
+  min_positives: 30           # below this a subgroup metric carries a small-N warning
+  min_effective_n: 30
+  age_bands: [[12, 44], [45, 64], [65, 120]]
+
+validation:
+  folds: 5
+  repeats: 5
+  inner_folds: 3
+  bootstrap_replicates: 500
+  auc_bootstrap_replicates: 500
+
+lonely_psu: fail

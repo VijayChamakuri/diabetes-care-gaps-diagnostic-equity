@@ -1,0 +1,22 @@
+model,role,feature,nhanes_variable,description,availability_and_rationale
+demographic_logistic,primary,age,RIDAGEYR,Age in years at screening,Known before any diagnosis; top-coded at 80
+demographic_logistic,primary,female,RIAGENDR,Female sex,Known before any diagnosis
+demographic_race_logistic,sensitivity,age,RIDAGEYR,Age in years at screening,Known before any diagnosis; top-coded at 80
+demographic_race_logistic,sensitivity,female,RIAGENDR,Female sex,Known before any diagnosis
+demographic_race_logistic,sensitivity,race_Non-Hispanic Black,RIDRETH3,Race and ethnicity: Non-Hispanic Black,"Sensitivity analysis only, never in the primary model"
+demographic_race_logistic,sensitivity,race_Mexican American,RIDRETH3,Race and ethnicity: Mexican American,"Sensitivity analysis only, never in the primary model"
+demographic_race_logistic,sensitivity,race_Other Hispanic,RIDRETH3,Race and ethnicity: Other Hispanic,"Sensitivity analysis only, never in the primary model"
+demographic_race_logistic,sensitivity,race_Non-Hispanic Asian,RIDRETH3,Race and ethnicity: Non-Hispanic Asian,"Sensitivity analysis only, never in the primary model"
+demographic_race_logistic,sensitivity,race_Other/Multiracial,RIDRETH3,Race and ethnicity: Other/Multiracial,"Sensitivity analysis only, never in the primary model"
+extended_logistic,sensitivity,age,RIDAGEYR,Age in years at screening,Known before any diagnosis; top-coded at 80
+extended_logistic,sensitivity,female,RIAGENDR,Female sex,Known before any diagnosis
+extended_logistic,sensitivity,bmi,BMXBMI,Body mass index from the exam,Measured at the same exam as HbA1c but not part of the outcome definition
+extended_logistic,sensitivity,family_history,MCQ300C,Close relative with diabetes (adults 20 and older),"Self-reported; blank for adolescents, so imputed with a missing indicator"
+extended_logistic,sensitivity,insured,HIQ011,Covered by health insurance,"Access-to-care proxy, known before diagnosis"
+extended_logistic,sensitivity,routine_care,HUQ030,Has a place for routine care,"Access-to-care proxy, known before diagnosis"
+extended_boosting,comparison,age,RIDAGEYR,Age in years at screening,Known before any diagnosis; top-coded at 80
+extended_boosting,comparison,female,RIAGENDR,Female sex,Known before any diagnosis
+extended_boosting,comparison,bmi,BMXBMI,Body mass index from the exam,Measured at the same exam as HbA1c but not part of the outcome definition
+extended_boosting,comparison,family_history,MCQ300C,Close relative with diabetes (adults 20 and older),"Self-reported; blank for adolescents, so imputed with a missing indicator"
+extended_boosting,comparison,insured,HIQ011,Covered by health insurance,"Access-to-care proxy, known before diagnosis"
+extended_boosting,comparison,routine_care,HUQ030,Has a place for routine care,"Access-to-care proxy, known before diagnosis"

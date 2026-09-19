@@ -1,0 +1,15 @@
+suite,check_name,passed,detail
+data_quality,seqn_unique,True,rows=5873 distinct=5873
+data_quality,weights_positive,True,min weight=3534.0362393758346
+data_quality,psu_masked_values,True,"rows with psu not in (1,2)=0"
+data_quality,no_lonely_psu_strata,True,min PSUs per stratum=2
+data_quality,race_categories_allowed,True,unexpected categories=0
+data_quality,diagnosed_is_binary,True,non-binary rows=0
+data_quality,hba1c_present_and_plausible,True,rows with hba1c null or outside 3..20=0
+data_quality,hba1c_positive_group_present,True,hba1c positives=711
+data_quality,age_in_survey_range,True,rows outside 12..80=0
+data_quality,missingness_reported,True,bmi=92 insured=14 routine_care=2 family_history=1086
+cohort_validation,attrition_never_increases,True,steps that add rows=0
+cohort_validation,attrition_last_step_equals_cohort,True,attrition=5873 cohort=5873
+cohort_validation,independent_recount_matches,True,recount vs cohort
+cohort_validation,first_step_equals_demo_rows,True,demo rows=9254

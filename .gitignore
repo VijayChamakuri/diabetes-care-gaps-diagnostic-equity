@@ -1,20 +1,34 @@
-# NHANES raw data files — not for redistribution
+# NHANES raw data: public but not redistributed here. Run `nhanes-diabetes download`.
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
 *.XPT
 *.xpt
+*.duckdb
 
 # Python
 __pycache__/
 *.py[cod]
 *.egg-info/
+build/
 .env
-venv/
 .venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+coverage.xml
 
-# OS
+# R
+.Rhistory
+.RData
+
+# OS and editors
 .DS_Store
 Thumbs.db
-
-# Editor
 .vscode/
 .idea/
 *.swp

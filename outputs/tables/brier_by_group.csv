@@ -1,0 +1,57 @@
+model,label,group,respondents,brier_own_label
+demographic_logistic,diagnosed,Non-Hispanic White,2022,0.09050985441835524
+demographic_logistic,diagnosed,Non-Hispanic Black,1312,0.08595026191825224
+demographic_logistic,diagnosed,Mexican American,856,0.07859471923059298
+demographic_logistic,diagnosed,Other Hispanic,546,0.06337193625810962
+demographic_logistic,diagnosed,Non-Hispanic Asian,796,0.08988914717873947
+demographic_logistic,diagnosed,Other/Multiracial,341,0.09569768187132266
+demographic_logistic,diagnosed,All groups,5873,0.0871170404635781
+demographic_logistic,hba1c_pos,Non-Hispanic White,2022,0.0718804022907458
+demographic_logistic,hba1c_pos,Non-Hispanic Black,1312,0.09681579813048746
+demographic_logistic,hba1c_pos,Mexican American,856,0.07349853755722097
+demographic_logistic,hba1c_pos,Other Hispanic,546,0.06693202457654918
+demographic_logistic,hba1c_pos,Non-Hispanic Asian,796,0.09210176832089359
+demographic_logistic,hba1c_pos,Other/Multiracial,341,0.07619892016968348
+demographic_logistic,hba1c_pos,All groups,5873,0.07577755970423575
+demographic_race_logistic,diagnosed,Non-Hispanic White,2022,0.09044706256099876
+demographic_race_logistic,diagnosed,Non-Hispanic Black,1312,0.08585416588868881
+demographic_race_logistic,diagnosed,Mexican American,856,0.07684304237724493
+demographic_race_logistic,diagnosed,Other Hispanic,546,0.06378968502730903
+demographic_race_logistic,diagnosed,Non-Hispanic Asian,796,0.08876655282891992
+demographic_race_logistic,diagnosed,Other/Multiracial,341,0.09357369039286459
+demographic_race_logistic,diagnosed,All groups,5873,0.08675575708819973
+demographic_race_logistic,hba1c_pos,Non-Hispanic White,2022,0.0715976556256094
+demographic_race_logistic,hba1c_pos,Non-Hispanic Black,1312,0.0958625881095234
+demographic_race_logistic,hba1c_pos,Mexican American,856,0.0720837748379768
+demographic_race_logistic,hba1c_pos,Other Hispanic,546,0.06682705972529786
+demographic_race_logistic,hba1c_pos,Non-Hispanic Asian,796,0.08988483923453257
+demographic_race_logistic,hba1c_pos,Other/Multiracial,341,0.07577659132949051
+demographic_race_logistic,hba1c_pos,All groups,5873,0.07520750098861889
+extended_logistic,diagnosed,Non-Hispanic White,2022,0.0811714274481393
+extended_logistic,diagnosed,Non-Hispanic Black,1312,0.07830262622229951
+extended_logistic,diagnosed,Mexican American,856,0.07391692422056026
+extended_logistic,diagnosed,Other Hispanic,546,0.0601333416891175
+extended_logistic,diagnosed,Non-Hispanic Asian,796,0.08664947373118792
+extended_logistic,diagnosed,Other/Multiracial,341,0.0788338875633897
+extended_logistic,diagnosed,All groups,5873,0.07882093060886033
+extended_logistic,hba1c_pos,Non-Hispanic White,2022,0.06830491044574545
+extended_logistic,hba1c_pos,Non-Hispanic Black,1312,0.08825383480648274
+extended_logistic,hba1c_pos,Mexican American,856,0.06976636058182571
+extended_logistic,hba1c_pos,Other Hispanic,546,0.06495523342563715
+extended_logistic,hba1c_pos,Non-Hispanic Asian,796,0.09122791259567514
+extended_logistic,hba1c_pos,Other/Multiracial,341,0.07019617556368161
+extended_logistic,hba1c_pos,All groups,5873,0.07177803450912422
+extended_boosting,diagnosed,Non-Hispanic White,2022,0.08479757446807329
+extended_boosting,diagnosed,Non-Hispanic Black,1312,0.07873518996659522
+extended_boosting,diagnosed,Mexican American,856,0.07511625834606854
+extended_boosting,diagnosed,Other Hispanic,546,0.05860682582737449
+extended_boosting,diagnosed,Non-Hispanic Asian,796,0.08752827026236115
+extended_boosting,diagnosed,Other/Multiracial,341,0.07679170980824823
+extended_boosting,diagnosed,All groups,5873,0.0810492125346156
+extended_boosting,hba1c_pos,Non-Hispanic White,2022,0.06976702203722814
+extended_boosting,hba1c_pos,Non-Hispanic Black,1312,0.08816814506693339
+extended_boosting,hba1c_pos,Mexican American,856,0.07052679912090352
+extended_boosting,hba1c_pos,Other Hispanic,546,0.06560300796549083
+extended_boosting,hba1c_pos,Non-Hispanic Asian,796,0.09013695577563387
+extended_boosting,hba1c_pos,Other/Multiracial,341,0.07158356578885171
+extended_boosting,hba1c_pos,All groups,5873,0.07279650169873779

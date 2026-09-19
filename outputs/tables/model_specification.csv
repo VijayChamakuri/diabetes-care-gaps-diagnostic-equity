@@ -1,0 +1,5 @@
+model,algorithm,role,features,description
+demographic_logistic,logistic,primary,"age, female","Age and sex, race excluded (primary benchmark)"
+demographic_race_logistic,logistic,sensitivity,"age, female, race_Non-Hispanic Black, race_Mexican American, race_Other Hispanic, race_Non-Hispanic Asian, race_Other/Multiracial","Age, sex and race dummies (sensitivity)"
+extended_logistic,logistic,sensitivity,"age, female, bmi, family_history, insured, routine_care","Adds BMI, family history, insurance and a routine care place; race excluded"
+extended_boosting,boosting,comparison,"age, female, bmi, family_history, insured, routine_care","Gradient boosting on the extended features, to test whether nonlinearity adds value"

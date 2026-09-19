@@ -1,0 +1,29 @@
+group,variable,respondents,missing,missing_share
+Non-Hispanic White,bmi,2022,29,0.014342235410484669
+Non-Hispanic White,family_history,2022,341,0.16864490603363008
+Non-Hispanic White,insured,2022,0,0.0
+Non-Hispanic White,routine_care,2022,1,0.0004945598417408506
+Non-Hispanic Black,bmi,1312,22,0.01676829268292683
+Non-Hispanic Black,family_history,1312,225,0.1714939024390244
+Non-Hispanic Black,insured,1312,5,0.0038109756097560975
+Non-Hispanic Black,routine_care,1312,0,0.0
+Mexican American,bmi,856,13,0.015186915887850467
+Mexican American,family_history,856,196,0.22897196261682243
+Mexican American,insured,856,7,0.008177570093457943
+Mexican American,routine_care,856,0,0.0
+Other Hispanic,bmi,546,12,0.02197802197802198
+Other Hispanic,family_history,546,82,0.15018315018315018
+Other Hispanic,insured,546,0,0.0
+Other Hispanic,routine_care,546,0,0.0
+Non-Hispanic Asian,bmi,796,10,0.01256281407035176
+Non-Hispanic Asian,family_history,796,143,0.17964824120603015
+Non-Hispanic Asian,insured,796,1,0.001256281407035176
+Non-Hispanic Asian,routine_care,796,1,0.001256281407035176
+Other/Multiracial,bmi,341,6,0.017595307917888565
+Other/Multiracial,family_history,341,99,0.2903225806451613
+Other/Multiracial,insured,341,1,0.002932551319648094
+Other/Multiracial,routine_care,341,0,0.0
+All groups,bmi,5873,92,0.015664907202451898
+All groups,family_history,5873,1086,0.18491401328111698
+All groups,insured,5873,14,0.0023837902264600714
+All groups,routine_care,5873,2,0.00034054146092286734

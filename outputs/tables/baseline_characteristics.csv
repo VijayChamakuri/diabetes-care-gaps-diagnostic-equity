@@ -1,0 +1,49 @@
+population,characteristic,respondents,estimate,se,kind
+Analysis cohort,"Age, years",5873,44.393360187645726,0.5810624417903314,mean
+Analysis cohort,Female,5873,0.5171165882527138,0.010461484061154297,share
+Analysis cohort,"BMI, kg/m2",5781,29.11365184649269,0.23374066120664871,mean
+Analysis cohort,Has health insurance,5859,0.8697939060276825,0.016492066140349447,share
+Analysis cohort,Has a routine place for care,5871,0.8186952617371317,0.013212254630747197,share
+Analysis cohort,Close relative with diabetes,4787,0.458575029819585,0.013959278529818916,share
+Analysis cohort,Race and ethnicity: Non-Hispanic White,5873,0.613665301106293,0.024647841648300358,share
+Analysis cohort,Race and ethnicity: Non-Hispanic Black,5873,0.11040037832639317,0.015168961275318107,share
+Analysis cohort,Race and ethnicity: Mexican American,5873,0.09872186997192758,0.017562540619095606,share
+Analysis cohort,Race and ethnicity: Other Hispanic,5873,0.0714753217663007,0.007819476117907708,share
+Analysis cohort,Race and ethnicity: Non-Hispanic Asian,5873,0.055436242573348705,0.009399795380610318,share
+Analysis cohort,Race and ethnicity: Other/Multiracial,5873,0.05030088625573664,0.0048977914477254005,share
+HbA1c criterion met,"Age, years",711,60.05349274491385,1.2038363829695742,mean
+HbA1c criterion met,Female,711,0.4595722011553812,0.022333516787084878,share
+HbA1c criterion met,"BMI, kg/m2",693,33.088238050329764,0.5719085858444567,mean
+HbA1c criterion met,Has health insurance,710,0.8864921440935586,0.024786535495622826,share
+HbA1c criterion met,Has a routine place for care,711,0.9026927750910323,0.017671571352669054,share
+HbA1c criterion met,Close relative with diabetes,686,0.7009414459745009,0.023765500768482835,share
+HbA1c criterion met,Race and ethnicity: Non-Hispanic White,711,0.5689436238780619,0.04233538218285922,share
+HbA1c criterion met,Race and ethnicity: Non-Hispanic Black,711,0.14303419810854562,0.028173466026666066,share
+HbA1c criterion met,Race and ethnicity: Mexican American,711,0.09694986900491695,0.020599957980883748,share
+HbA1c criterion met,Race and ethnicity: Other Hispanic,711,0.0649754955451994,0.013410083021693933,share
+HbA1c criterion met,Race and ethnicity: Non-Hispanic Asian,711,0.07204021013342701,0.01328427023017243,share
+HbA1c criterion met,Race and ethnicity: Other/Multiracial,711,0.05405660332984916,0.010364129037088124,share
+"Met criterion, told by doctor","Age, years",559,61.36866492013788,1.1622545395968393,mean
+"Met criterion, told by doctor",Female,559,0.41440935000555795,0.020491575104005944,share
+"Met criterion, told by doctor","BMI, kg/m2",545,32.61825470239722,0.7118470286749873,mean
+"Met criterion, told by doctor",Has health insurance,559,0.9131369830236072,0.02308484801240101,share
+"Met criterion, told by doctor",Has a routine place for care,559,0.9261261415343778,0.01997658071333256,share
+"Met criterion, told by doctor",Close relative with diabetes,538,0.7336482094147936,0.03168337477920686,share
+"Met criterion, told by doctor",Race and ethnicity: Non-Hispanic White,559,0.6112774562833675,0.04030821334171048,share
+"Met criterion, told by doctor",Race and ethnicity: Non-Hispanic Black,559,0.11949145778775108,0.026213128909052676,share
+"Met criterion, told by doctor",Race and ethnicity: Mexican American,559,0.09239975479170846,0.021610630779341007,share
+"Met criterion, told by doctor",Race and ethnicity: Other Hispanic,559,0.054878937600706335,0.009194080501718289,share
+"Met criterion, told by doctor",Race and ethnicity: Non-Hispanic Asian,559,0.0641898739723371,0.01143602380293295,share
+"Met criterion, told by doctor",Race and ethnicity: Other/Multiracial,559,0.057762519564129644,0.013136359649586144,share
+"Met criterion, never told","Age, years",152,54.40455906726319,1.8913011194564102,mean
+"Met criterion, never told",Female,152,0.6535558906259248,0.06360223332372512,share
+"Met criterion, never told","BMI, kg/m2",148,35.10555887356401,0.46318053806331894,mean
+"Met criterion, never told",Has health insurance,151,0.7717633381020683,0.053057420061006506,share
+"Met criterion, never told",Has a routine place for care,152,0.802041669953416,0.0641824364539243,share
+"Met criterion, never told",Close relative with diabetes,148,0.5631596462604269,0.07177548098608322,share
+"Met criterion, never told",Race and ethnicity: Non-Hispanic White,152,0.3871111489493626,0.08670412658960332,share
+"Met criterion, never told",Race and ethnicity: Non-Hispanic Black,152,0.24415508643608683,0.05119755418834537,share
+"Met criterion, never told",Race and ethnicity: Mexican American,152,0.1164935408528799,0.03703672726728799,share
+"Met criterion, never told",Race and ethnicity: Other Hispanic,152,0.10834227844667152,0.050191492283659926,share
+"Met criterion, never told",Race and ethnicity: Non-Hispanic Asian,152,0.10575901072598445,0.0303501761572655,share
+"Met criterion, never told",Race and ethnicity: Other/Multiracial,152,0.0381389345890145,0.010889927138924355,share

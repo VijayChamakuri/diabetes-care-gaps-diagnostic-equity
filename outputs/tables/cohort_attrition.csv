@@ -1,0 +1,8 @@
+step,description,n,removed
+1,NHANES 2017-2018 participants (DEMO_J),9254,0
+2,"Examined, with a positive MEC exam weight",8704,550
+3,Meets the minimum age,8704,0
+4,"Valid diabetes questionnaire answer (yes, no or borderline)",8362,342
+5,Borderline answers handled per the analysis variant,8187,175
+6,HbA1c measured,5873,2314
+7,Known race and ethnicity (analysis cohort),5873,0
