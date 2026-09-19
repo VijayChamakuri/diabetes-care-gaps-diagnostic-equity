@@ -483,7 +483,7 @@ def build_workbook(config: Config, output: Path | None = None) -> Path:
     _banner(ws, banner, "Model tradeoffs: does the training label change who a screening model misses or over-flags?",
             "Both labels are scored against the HbA1c criterion. False-positive rate is one minus specificity and is a formula. Not clinical risk models.")
     mc = model_comparison_frame(tables)
-    comparison = _write_table(ws, HEADER_ROW, mc, "ModelComparison", widths={"model": 26, "role": 24, "description": 46}, formulas={
+    comparison = _write_table(ws, HEADER_ROW, mc, "ModelComparison", widths={"model": 26, "role": 24, "description": 76}, formulas={
         "auc_difference_reconciles": '=IF(ABS(({auc_diagnosed_label}{r}-{auc_hba1c_label}{r})-{auc_difference}{r})<=' + str(TOL) + ',"PASS","FAIL")',
     })
     perf_start = comparison["last"] + 5
