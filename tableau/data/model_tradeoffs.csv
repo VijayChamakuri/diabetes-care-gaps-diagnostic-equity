@@ -1,0 +1,321 @@
+model,model_role,model_description,group,label,metric,estimate,ci_low,ci_high,unit,small_sample_warning
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,auc,0.7575015909,0.7345509974,0.7848531647,auc,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,auc,0.7564329058,0.7340071447,0.7840728471,auc,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed minus hba1c_pos,auc_difference,0.00106868515,-0.0003965960451,0.002511416144,auc,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,false_positive_rate,0.4085328691,0.3832762449,0.431129764,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed,false_positive_rate,0.2432276,0.1858567676,0.3081825003,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed,false_positive_rate,0.326833359,0.2663207115,0.3809417465,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed,false_positive_rate,0.3410780241,0.320643189,0.3611523913,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed,false_positive_rate,0.4686153511,0.4306154431,0.5068679533,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed,false_positive_rate,0.3262116881,0.2856938947,0.3660480553,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed,false_positive_rate,0.3440862744,0.2445296296,0.4143491364,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,false_positive_rate,0.4156388934,0.390541332,0.4388207519,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,hba1c_pos,false_positive_rate,0.2419911126,0.1929454673,0.3003266976,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,hba1c_pos,false_positive_rate,0.335568875,0.2849505483,0.3869168151,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,hba1c_pos,false_positive_rate,0.3483081614,0.3262982986,0.3687552126,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,hba1c_pos,false_positive_rate,0.4780660042,0.4392638746,0.5134948879,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,hba1c_pos,false_positive_rate,0.3229504536,0.2824499372,0.3717422142,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,hba1c_pos,false_positive_rate,0.3516440439,0.2544541819,0.4268136615,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,npv,0.9735633926,0.9654462215,0.9826392146,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed,npv,0.9591272114,0.9398918363,0.9784795087,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed,npv,0.9771438433,0.962602144,0.992505032,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed,npv,0.955166284,0.937491252,0.975638197,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed,npv,0.9788831873,0.9653053773,0.9946087726,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed,npv,0.9802414008,0.9614442075,1,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed,npv,0.9807849962,0.970823311,0.9897291992,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,npv,0.9759015366,0.9688744248,0.9837511607,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,hba1c_pos,npv,0.9603770342,0.9401186504,0.9790888258,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,hba1c_pos,npv,0.9802418084,0.9655192781,0.9975537132,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,hba1c_pos,npv,0.958381455,0.9379999764,0.9793641496,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,hba1c_pos,npv,0.9813302297,0.969843806,0.9950712386,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,hba1c_pos,npv,0.9827919069,0.9655990295,1,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,hba1c_pos,npv,0.9821053414,0.9717512685,0.9918375251,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,ppv,0.1658383384,0.1473211689,0.1841384315,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed,ppv,0.2060763348,0.1524983973,0.2720067221,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed,ppv,0.2593618748,0.2101732243,0.3368686009,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed,ppv,0.2246210685,0.1793014079,0.2635144057,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed,ppv,0.1428530391,0.1147818884,0.1703306708,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed,ppv,0.1850385002,0.138971198,0.2385207296,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed,ppv,0.2118455873,0.1237264341,0.3136848896,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,ppv,0.1662091304,0.1480453231,0.1832544633,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,hba1c_pos,ppv,0.2094217467,0.154085075,0.2742048466,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,hba1c_pos,ppv,0.2582338576,0.2104641373,0.3292439925,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,hba1c_pos,ppv,0.225610092,0.1855305839,0.2612244942,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,hba1c_pos,ppv,0.1427810466,0.1154771391,0.170274025,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,hba1c_pos,ppv,0.190164775,0.1431865238,0.2435291854,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,hba1c_pos,ppv,0.2100373315,0.1262720312,0.3049765752,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,sensitivity,0.8347790398,0.7796625378,0.8923652992,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed,sensitivity,0.6617629612,0.5316978387,0.8033725001,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed,sensitivity,0.8789397836,0.7968878835,0.9593686617,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed,sensitivity,0.7613542349,0.6657066571,0.8659023723,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed,sensitivity,0.8718814139,0.7966566704,0.9655795848,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed,sensitivity,0.8449487008,0.7364611007,1,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed,sensitivity,0.8777868668,0.7517358117,0.9409666806,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,sensitivity,0.8516680819,0.8017055473,0.9022472913,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,hba1c_pos,sensitivity,0.6720888219,0.5480409812,0.8096655428,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,hba1c_pos,sensitivity,0.8971375071,0.8143638281,0.9874082154,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,hba1c_pos,sensitivity,0.7819240182,0.6826126774,0.8845620189,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,hba1c_pos,sensitivity,0.8891123693,0.8227190157,0.9662267179,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,hba1c_pos,sensitivity,0.8647953738,0.7685919149,1,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,hba1c_pos,sensitivity,0.8878099041,0.7632642609,0.9547362749,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed,specificity,0.5914671309,0.568870236,0.6167237551,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed,specificity,0.7567724,0.6918174997,0.8141432324,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed,specificity,0.673166641,0.6190582535,0.7336792885,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed,specificity,0.6589219759,0.6388476087,0.679356811,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed,specificity,0.5313846489,0.4931320467,0.5693845569,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed,specificity,0.6737883119,0.6339519447,0.7143061053,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed,specificity,0.6559137256,0.5856508636,0.7554703704,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,hba1c_pos,specificity,0.5843611066,0.5611792481,0.609458668,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,hba1c_pos,specificity,0.7580088874,0.6996733024,0.8070545327,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,hba1c_pos,specificity,0.664431125,0.6130831849,0.7150494517,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,hba1c_pos,specificity,0.6516918386,0.6312447874,0.6737017014,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,hba1c_pos,specificity,0.5219339958,0.4865051121,0.5607361254,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,hba1c_pos,specificity,0.6770495464,0.6282577858,0.7175500628,proportion,OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,hba1c_pos,specificity,0.6483559561,0.5731863385,0.7455458181,proportion,SMALL SAMPLE
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",All groups,diagnosed minus hba1c_pos,specificity_cost,0.007106024284,-0.003014182169,0.01811590128,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Mexican American,diagnosed minus hba1c_pos,specificity_cost,-0.001236487347,-0.01690910583,0.01481957077,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Asian,diagnosed minus hba1c_pos,specificity_cost,0.008735516019,-0.007686336579,0.02500080023,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic Black,diagnosed minus hba1c_pos,specificity_cost,0.007230137332,-0.00851204545,0.02061192877,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Non-Hispanic White,diagnosed minus hba1c_pos,specificity_cost,0.00945065313,-0.001089502362,0.02073953462,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other Hispanic,diagnosed minus hba1c_pos,specificity_cost,-0.003261234411,-0.026491641,0.02145125668,percentage points (0 to 1 scale),OK
+demographic_logistic,primary,"Age and sex, race excluded (primary benchmark)",Other/Multiracial,diagnosed minus hba1c_pos,specificity_cost,0.0075577695,-0.006136128434,0.02255860418,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,auc,0.7631450575,0.7366999302,0.7966162144,auc,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,auc,0.7647580856,0.7367949699,0.8043687593,auc,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed minus hba1c_pos,auc_difference,-0.001613028131,-0.01009989694,0.005415644629,auc,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,false_positive_rate,0.3847274908,0.3556858275,0.4138210856,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed,false_positive_rate,0.3073937224,0.2447834903,0.3790265608,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed,false_positive_rate,0.3608106901,0.304625525,0.4167553321,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed,false_positive_rate,0.3458879169,0.3228199548,0.3715230445,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed,false_positive_rate,0.415893223,0.3720231672,0.4624604292,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed,false_positive_rate,0.2643326492,0.2251807176,0.3046582543,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed,false_positive_rate,0.4351957003,0.3475564135,0.4996687431,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,false_positive_rate,0.3983016708,0.3713602583,0.4232098309,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,hba1c_pos,false_positive_rate,0.3599190332,0.2936707485,0.4382819649,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,hba1c_pos,false_positive_rate,0.4514575309,0.4005268406,0.5068260929,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,hba1c_pos,false_positive_rate,0.4456415338,0.4247290485,0.4664317086,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,hba1c_pos,false_positive_rate,0.3965855685,0.3572327263,0.4363052695,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,hba1c_pos,false_positive_rate,0.3517003165,0.3007071501,0.3993952683,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,hba1c_pos,false_positive_rate,0.4039043018,0.3032865794,0.4783734616,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,npv,0.9681239542,0.9579438969,0.9800839988,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed,npv,0.965308359,0.94282307,0.9843584253,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed,npv,0.9812044295,0.9680933833,0.9966934079,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed,npv,0.9543474255,0.9331661587,0.9778513955,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed,npv,0.9677926321,0.9498551518,0.9877116693,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed,npv,0.9766557964,0.9544577116,0.9983795609,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed,npv,0.9827780908,0.9717683558,0.9928111987,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,npv,0.9677057947,0.9567574362,0.9807508155,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,hba1c_pos,npv,0.9677844965,0.9420398763,0.9874340852,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,hba1c_pos,npv,0.9902931653,0.9796811896,1,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,hba1c_pos,npv,0.9707886324,0.9512534796,0.989998195,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,hba1c_pos,npv,0.9628053191,0.9462289344,0.9827290889,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,hba1c_pos,npv,0.9823496943,0.9644885164,1,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,hba1c_pos,npv,0.9790104663,0.9703079177,0.9864865235,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,ppv,0.1668154112,0.1517672602,0.1826234569,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed,ppv,0.186762469,0.143745199,0.2391800161,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed,ppv,0.2465843374,0.2021524828,0.3132746448,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed,ppv,0.2210575508,0.1836568039,0.2534377622,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed,ppv,0.144309486,0.1188658985,0.1708087459,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed,ppv,0.2106054456,0.167217318,0.2610783822,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed,ppv,0.1798601125,0.1136497809,0.2518318631,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,ppv,0.1623741038,0.1508582519,0.1739020397,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,hba1c_pos,ppv,0.1707162124,0.1295304295,0.2169013759,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,hba1c_pos,ppv,0.216773908,0.1815992566,0.2661276429,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,hba1c_pos,ppv,0.2024332763,0.1645684042,0.2328057516,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,hba1c_pos,ppv,0.1431017946,0.122177771,0.1635693889,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,hba1c_pos,ppv,0.1778776813,0.1318063246,0.2333155645,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,hba1c_pos,ppv,0.1864833929,0.1115738732,0.2736866448,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,sensitivity,0.7909773368,0.7196852097,0.8696431071,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed,sensitivity,0.7389060659,0.6115139756,0.8687605099,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed,sensitivity,0.9046019861,0.8409828645,0.9840421819,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed,sensitivity,0.7564993084,0.6607567373,0.8716226702,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed,sensitivity,0.7823675067,0.6705328939,0.9170670965,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed,sensitivity,0.7985500759,0.6631813268,0.9837590709,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed,sensitivity,0.9056860229,0.7722443415,0.9644140662,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,sensitivity,0.7933276819,0.7309492023,0.8693442331,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,hba1c_pos,sensitivity,0.7763461461,0.6327417265,0.9033207678,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,hba1c_pos,sensitivity,0.9586109929,0.916126666,1,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,hba1c_pos,sensitivity,0.8709597994,0.7847391966,0.9531135659,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,hba1c_pos,sensitivity,0.7392582098,0.6442483006,0.8666769905,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,hba1c_pos,sensitivity,0.8673301382,0.7632162133,1,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,hba1c_pos,sensitivity,0.8782275898,0.7589127406,0.9331320277,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed,specificity,0.6152725092,0.5861789144,0.6443141725,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed,specificity,0.6926062776,0.6209734392,0.7552165097,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed,specificity,0.6391893099,0.5832446679,0.695374475,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed,specificity,0.6541120831,0.6284769555,0.6771800452,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed,specificity,0.584106777,0.5375395708,0.6279768328,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed,specificity,0.7356673508,0.6953417457,0.7748192824,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed,specificity,0.5648042997,0.5003312569,0.6524435865,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,hba1c_pos,specificity,0.6016983292,0.5767901691,0.6286397417,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,hba1c_pos,specificity,0.6400809668,0.5617180351,0.7063292515,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,hba1c_pos,specificity,0.5485424691,0.4931739071,0.5994731594,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,hba1c_pos,specificity,0.5543584662,0.5335682914,0.5752709515,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,hba1c_pos,specificity,0.6034144315,0.5636947305,0.6427672737,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,hba1c_pos,specificity,0.6482996835,0.6006047317,0.6992928499,proportion,OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,hba1c_pos,specificity,0.5960956982,0.5216265384,0.6967134206,proportion,SMALL SAMPLE
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",All groups,diagnosed minus hba1c_pos,specificity_cost,0.01357417994,-0.005712747808,0.03175992526,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Mexican American,diagnosed minus hba1c_pos,specificity_cost,0.05252531074,0.03315644448,0.06857808179,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Asian,diagnosed minus hba1c_pos,specificity_cost,0.09064684083,0.07006807812,0.1143679831,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic Black,diagnosed minus hba1c_pos,specificity_cost,0.0997536169,0.0857369194,0.1121537607,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Non-Hispanic White,diagnosed minus hba1c_pos,specificity_cost,-0.01930765447,-0.03686715371,-0.001159233942,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other Hispanic,diagnosed minus hba1c_pos,specificity_cost,0.08736766728,0.05888766197,0.1104865049,percentage points (0 to 1 scale),OK
+demographic_race_logistic,sensitivity,"Age, sex and race dummies (sensitivity)",Other/Multiracial,diagnosed minus hba1c_pos,specificity_cost,-0.03129139842,-0.08245730208,0.01287521913,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,auc,0.8187283883,0.7985920814,0.8466511886,auc,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,auc,0.8192847148,0.7985064633,0.8471773151,auc,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed minus hba1c_pos,auc_difference,-0.0005563264792,-0.005628867954,0.004032798354,auc,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,false_positive_rate,0.3280480591,0.3057418053,0.3475917047,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed,false_positive_rate,0.2266431209,0.1815485611,0.2857069238,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed,false_positive_rate,0.1863029745,0.1523632737,0.2218995119,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed,false_positive_rate,0.2984439985,0.2632468804,0.3334984902,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed,false_positive_rate,0.3752125492,0.3451301372,0.4045431551,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed,false_positive_rate,0.2268097219,0.1801854802,0.2822539082,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed,false_positive_rate,0.3076854558,0.1971787542,0.3857259936,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,false_positive_rate,0.3436326486,0.3188283535,0.3673531455,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,hba1c_pos,false_positive_rate,0.2598402419,0.2143848939,0.3158818263,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,hba1c_pos,false_positive_rate,0.1889622297,0.1586207935,0.2178520142,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,hba1c_pos,false_positive_rate,0.325155794,0.295743147,0.3558216431,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,hba1c_pos,false_positive_rate,0.3901870934,0.3579046316,0.4227329067,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,hba1c_pos,false_positive_rate,0.2426875405,0.1990377895,0.286064594,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,hba1c_pos,false_positive_rate,0.2855539518,0.215007804,0.3372394796,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,npv,0.9753251768,0.9674541453,0.9843996537,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed,npv,0.9630232674,0.9470768879,0.9783518389,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed,npv,0.9539178486,0.9399311995,0.9711186712,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed,npv,0.9696296959,0.9534528007,0.9842015232,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed,npv,0.9804988629,0.9676843012,0.9949141477,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed,npv,0.9740075135,0.9556531091,0.989216047,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed,npv,0.9878735406,0.977054889,0.9986102798,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,npv,0.9753036556,0.9679722737,0.9837988488,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,hba1c_pos,npv,0.961935991,0.948304829,0.9778907003,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,hba1c_pos,npv,0.9520735923,0.9382799846,0.966858241,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,hba1c_pos,npv,0.9687174083,0.9535602581,0.9834034936,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,hba1c_pos,npv,0.9803608064,0.9676735626,0.9962053825,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,hba1c_pos,npv,0.9793678393,0.9611081299,0.9935974936,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,hba1c_pos,npv,0.9864878471,0.9776327681,0.9959204875,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,ppv,0.1966388081,0.1814457142,0.2112774228,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed,ppv,0.2246385529,0.1700667244,0.2821686166,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed,ppv,0.3279391246,0.2623252737,0.4193548759,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed,ppv,0.2653554155,0.206847196,0.3202789684,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed,ppv,0.1705542949,0.1446840192,0.1967651234,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed,ppv,0.2284324785,0.1648534536,0.2915879244,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed,ppv,0.239350731,0.1481056128,0.3636209586,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,ppv,0.1903377257,0.1750686685,0.2052077163,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,hba1c_pos,ppv,0.2024383006,0.1495270732,0.2566531959,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,hba1c_pos,ppv,0.3212180831,0.2523825213,0.4021434094,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,hba1c_pos,ppv,0.2497741425,0.1980287344,0.2973904629,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,hba1c_pos,ppv,0.1656319205,0.1412275597,0.1917397337,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,hba1c_pos,ppv,0.2291264722,0.1720103245,0.2886004832,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,hba1c_pos,ppv,0.251214912,0.1531474527,0.3642154653,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,sensitivity,0.8252473522,0.782704703,0.8788537424,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed,sensitivity,0.688581162,0.5759025368,0.8054452727,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed,sensitivity,0.6980941691,0.6231200306,0.7916318089,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed,sensitivity,0.8306555031,0.7310441359,0.9093485695,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed,sensitivity,0.8612584272,0.7907149786,0.9582874912,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed,sensitivity,0.7646729663,0.6057968368,0.8987422596,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed,sensitivity,0.9192958071,0.8169808734,0.9899675035,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,sensitivity,0.8287442408,0.7875308601,0.8799988415,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,hba1c_pos,sensitivity,0.6919614799,0.6105304272,0.8024237315,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,hba1c_pos,sensitivity,0.6861162507,0.5914193755,0.7727125552,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,hba1c_pos,sensitivity,0.8318487199,0.7371105211,0.9078664313,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,hba1c_pos,sensitivity,0.8631540776,0.7994658329,0.966733151,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,hba1c_pos,sensitivity,0.8177832312,0.7062756943,0.9297464735,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,hba1c_pos,sensitivity,0.9069384663,0.8000926287,0.9696388687,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed,specificity,0.6719519409,0.6524082953,0.6942581947,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed,specificity,0.7733568791,0.7142930762,0.8184514389,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed,specificity,0.8136970255,0.7781004881,0.8476367263,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed,specificity,0.7015560015,0.6665015098,0.7367531196,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed,specificity,0.6247874508,0.5954568449,0.6548698628,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed,specificity,0.7731902781,0.7177460918,0.8198145198,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed,specificity,0.6923145442,0.6142740064,0.8028212458,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,hba1c_pos,specificity,0.6563673514,0.6326468545,0.6811716465,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,hba1c_pos,specificity,0.7401597581,0.6841181737,0.7856151061,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,hba1c_pos,specificity,0.8110377703,0.7821479858,0.8413792065,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,hba1c_pos,specificity,0.674844206,0.6441783569,0.704256853,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,hba1c_pos,specificity,0.6098129066,0.5772670933,0.6420953684,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,hba1c_pos,specificity,0.7573124595,0.713935406,0.8009622105,proportion,OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,hba1c_pos,specificity,0.7144460482,0.6627605204,0.784992196,proportion,SMALL SAMPLE
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",All groups,diagnosed minus hba1c_pos,specificity_cost,0.01558458951,0.001865968337,0.0312754336,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Mexican American,diagnosed minus hba1c_pos,specificity_cost,0.03319712105,-6.239902668e-05,0.07417881424,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Asian,diagnosed minus hba1c_pos,specificity_cost,0.00265925514,-0.009544767582,0.01735609139,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic Black,diagnosed minus hba1c_pos,specificity_cost,0.02671179556,0.01435748321,0.03905586969,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Non-Hispanic White,diagnosed minus hba1c_pos,specificity_cost,0.01497454425,-0.0001470703767,0.03242706558,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other Hispanic,diagnosed minus hba1c_pos,specificity_cost,0.01587781863,-0.005490807957,0.03491969868,percentage points (0 to 1 scale),OK
+extended_logistic,sensitivity,"Adds BMI, family history, insurance and a routine care place; race excluded",Other/Multiracial,diagnosed minus hba1c_pos,specificity_cost,-0.022131504,-0.1066526725,0.06358110328,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,auc,0.811004805,0.787101996,0.8429351207,auc,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,auc,0.8086430931,0.788411376,0.8358173225,auc,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed minus hba1c_pos,auc_difference,0.002361711896,-0.007710020105,0.01340205773,auc,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,false_positive_rate,0.3333477514,0.3125041502,0.3510662356,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed,false_positive_rate,0.2292420049,0.1858990612,0.2817911101,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed,false_positive_rate,0.1858848768,0.157914739,0.2144793856,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed,false_positive_rate,0.3029460769,0.2791078314,0.3246240621,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed,false_positive_rate,0.3853838195,0.3580961468,0.4127050729,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed,false_positive_rate,0.2269380603,0.1793117282,0.2804595028,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed,false_positive_rate,0.2733848147,0.1570195472,0.3618603102,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,false_positive_rate,0.3111031898,0.292375242,0.3280264944,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,hba1c_pos,false_positive_rate,0.2247758849,0.1750105982,0.2822165346,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,hba1c_pos,false_positive_rate,0.1680058438,0.1428226039,0.1900098715,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,hba1c_pos,false_positive_rate,0.2964695844,0.2637646887,0.3286287989,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,hba1c_pos,false_positive_rate,0.3541129258,0.3297394059,0.3798878648,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,hba1c_pos,false_positive_rate,0.2313813249,0.1898727194,0.2737646664,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,hba1c_pos,false_positive_rate,0.250542231,0.1600884656,0.3147373916,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,npv,0.9763499513,0.9694011875,0.9843832658,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed,npv,0.9648217822,0.9510661029,0.9794585694,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed,npv,0.9521375753,0.9334957373,0.9709307061,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed,npv,0.9671318871,0.9518098629,0.9834693036,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed,npv,0.981620711,0.9694199125,0.9958518994,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed,npv,0.9814049035,0.9635394964,0.9981484831,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed,npv,0.9875857887,0.9791075538,0.9948965261,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,npv,0.9757742632,0.9705120249,0.9820966588,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,hba1c_pos,npv,0.9588871033,0.9452686887,0.9751431012,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,hba1c_pos,npv,0.9528183585,0.9364921777,0.9698027876,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,hba1c_pos,npv,0.9689457793,0.9556540167,0.9831993596,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,hba1c_pos,npv,0.9821109606,0.9726761176,0.99350242,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,hba1c_pos,npv,0.9755303003,0.960398409,0.9887189552,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,hba1c_pos,npv,0.9862997138,0.9775866654,0.9943138187,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,ppv,0.1958595738,0.1772808837,0.2137993563,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed,ppv,0.227207352,0.1761766043,0.2866576829,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed,ppv,0.3247450982,0.2591617381,0.3953213918,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed,ppv,0.2595290647,0.2097064116,0.304559406,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed,ppv,0.1684927984,0.1369113487,0.1991737968,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed,ppv,0.2436524176,0.1821969977,0.3100317376,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed,ppv,0.261256799,0.1647500887,0.4139778526,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,ppv,0.2051074279,0.1857735831,0.2231578743,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,hba1c_pos,ppv,0.2167389303,0.1628565861,0.2870830985,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,hba1c_pos,ppv,0.3469214995,0.2880190871,0.4186003117,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,hba1c_pos,ppv,0.2658958506,0.211770489,0.316155341,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,hba1c_pos,ppv,0.1803225282,0.1484591234,0.2106885022,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,hba1c_pos,ppv,0.2284934196,0.1666320364,0.2904723696,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,hba1c_pos,ppv,0.2752803476,0.1663039048,0.4183888715,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,sensitivity,0.8340165526,0.787000967,0.8832060176,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed,sensitivity,0.7052589187,0.6247226958,0.806377467,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed,sensitivity,0.6854030905,0.5910208089,0.791961305,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed,sensitivity,0.8173901481,0.7216556829,0.9056976087,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed,sensitivity,0.8715472742,0.8011533016,0.9655024106,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed,sensitivity,0.832878999,0.6862340561,0.9833694811,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed,sensitivity,0.9133477225,0.8061522108,0.967533761,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,sensitivity,0.8241196805,0.7899328053,0.8626775539,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,hba1c_pos,sensitivity,0.6513838905,0.5590623842,0.7651625036,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,hba1c_pos,sensitivity,0.6829073592,0.6072703201,0.7808780564,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,hba1c_pos,sensitivity,0.8260302375,0.7454969676,0.9063463963,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,hba1c_pos,sensitivity,0.8686954733,0.810801398,0.9491879033,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,hba1c_pos,sensitivity,0.7799775873,0.639578167,0.8888651647,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,hba1c_pos,sensitivity,0.9009547674,0.780998202,0.9636719206,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed,specificity,0.6666522486,0.6489337644,0.6874958498,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed,specificity,0.7707579951,0.7182088899,0.8141009388,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed,specificity,0.8141151232,0.7855206144,0.842085261,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed,specificity,0.6970539231,0.6753759379,0.7208921686,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed,specificity,0.6146161805,0.5872949271,0.6419038532,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed,specificity,0.7730619397,0.7195404972,0.8206882718,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed,specificity,0.7266151853,0.6381396898,0.8429804528,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,hba1c_pos,specificity,0.6888968102,0.6719735056,0.707624758,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,hba1c_pos,specificity,0.7752241151,0.7177834654,0.8249894018,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,hba1c_pos,specificity,0.8319941562,0.8099901285,0.8571773961,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,hba1c_pos,specificity,0.7035304156,0.6713712011,0.7362353113,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,hba1c_pos,specificity,0.6458870742,0.6201121352,0.6702605941,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,hba1c_pos,specificity,0.7686186751,0.7262353336,0.8101272806,proportion,OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,hba1c_pos,specificity,0.749457769,0.6852626084,0.8399115344,proportion,SMALL SAMPLE
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",All groups,diagnosed minus hba1c_pos,specificity_cost,-0.02224456159,-0.0370680813,-0.008403365801,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Mexican American,diagnosed minus hba1c_pos,specificity_cost,-0.004466120023,-0.02465779517,0.009060659293,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Asian,diagnosed minus hba1c_pos,specificity_cost,-0.01787903291,-0.03674391774,-0.0004589894378,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic Black,diagnosed minus hba1c_pos,specificity_cost,-0.006476492479,-0.03271502253,0.02379826711,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Non-Hispanic White,diagnosed minus hba1c_pos,specificity_cost,-0.03127089366,-0.04647997818,-0.01430766714,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other Hispanic,diagnosed minus hba1c_pos,specificity_cost,0.004443264645,-0.01954416435,0.02521128825,percentage points (0 to 1 scale),OK
+extended_boosting,comparison,"Gradient boosting on the extended features, to test whether nonlinearity adds value",Other/Multiracial,diagnosed minus hba1c_pos,specificity_cost,-0.0228425837,-0.07603711038,0.03692174759,percentage points (0 to 1 scale),OK

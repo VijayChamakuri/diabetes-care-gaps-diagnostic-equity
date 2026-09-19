@@ -1,0 +1,7 @@
+kpi,value,source
+undiagnosed_share_all_groups,0.1888501127,undiagnosis_estimates.csv
+undiagnosed_share_Non-Hispanic Black,0.3223614786,undiagnosis_estimates.csv
+difference_vs_reference_prespecified,0.1938672288,undiagnosis_contrasts.csv
+weighted_people_undiagnosed,4245381.187,group_summary.csv
+specificity_cost_race_included_comparison_group,0.0997536169,specificity_cost.csv
+analysis_cohort_respondents,5873,cohort_attrition.csv

@@ -47,19 +47,30 @@ def _crosscheck(config: Config, args: argparse.Namespace) -> None:
 
 
 def _report(config: Config, args: argparse.Namespace) -> None:
+    from nhanes_diabetes.brief import check_brief, write_brief
     from nhanes_diabetes.plots import make_figures
     from nhanes_diabetes.report import check_readme, write_readme
+    from nhanes_diabetes.tableau import check_tableau, write_tableau
+    from nhanes_diabetes.workbook import verify_workbook
 
     make_figures(config)
     if args.check:
-        problems = check_readme(config)
+        problems = check_readme(config) + check_brief(config) + check_tableau(config) + verify_workbook(config)
         if problems:
-            print("README is out of sync with outputs/tables:\n  " + "\n  ".join(problems))
+            print("Generated artifacts are out of sync with outputs/tables:\n  " + "\n  ".join(problems))
             raise SystemExit(1)
-        print("README matches outputs/tables")
+        print("README, brief, Tableau extracts and workbook match outputs/tables")
     else:
         write_readme(config)
-        print("Figures written and README generated blocks refreshed")
+        write_brief(config)
+        write_tableau(config)
+        print("Figures written; README blocks, stakeholder brief and Tableau extracts refreshed")
+
+
+def _excel(config: Config, args: argparse.Namespace) -> None:
+    from nhanes_diabetes.workbook import build_workbook
+
+    print(build_workbook(config))
 
 
 def _dashboard(config: Config, args: argparse.Namespace) -> None:
@@ -74,6 +85,7 @@ def _all(config: Config, args: argparse.Namespace) -> None:
     _analyze(config, args)
     _crosscheck(config, argparse.Namespace(skip_if_no_r=True))
     _report(config, argparse.Namespace(check=False))
+    _excel(config, args)
     _dashboard(config, args)
 
 
@@ -82,7 +94,8 @@ COMMANDS: dict[str, tuple[str, Callable[[Config, argparse.Namespace], None]]] = 
     "build-cohort": ("Load DuckDB, run the cohort and data-quality SQL", _build_cohort),
     "analyze": ("Run estimates, models and robustness; write outputs/tables", _analyze),
     "crosscheck": ("Compare Python survey estimates with R's survey package", _crosscheck),
-    "report": ("Regenerate figures and the README generated blocks", _report),
+    "report": ("Regenerate figures, README blocks, the stakeholder brief and Tableau extracts", _report),
+    "excel": ("Build the seven-sheet Excel quality review from outputs/tables", _excel),
     "dashboard": ("Build the offline dashboard from outputs/tables", _dashboard),
     "all": ("Run every stage in order", _all),
 }
@@ -102,7 +115,7 @@ def main(argv: list[str] | None = None) -> int:
         if name == "crosscheck":
             p.add_argument("--skip-if-no-r", action="store_true", help="Skip quietly when R is unavailable")
         if name == "report":
-            p.add_argument("--check", action="store_true", help="Fail if the README does not match outputs")
+            p.add_argument("--check", action="store_true", help="Fail if the README, brief, Tableau extracts or workbook do not match outputs")
     args = parser.parse_args(argv)
     config = load_config(args.config, args.root)
     COMMANDS[args.command][1](config, args)

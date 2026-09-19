@@ -18,6 +18,7 @@ dependencies = [
   "duckdb>=1.1,<2",
   "pyyaml>=6,<7",
   "matplotlib>=3.8,<4",
+  "openpyxl>=3.1,<4",
 ]
 
 [project.optional-dependencies]
@@ -27,7 +28,9 @@ dev = [
   "ruff>=0.6,<1",
   "mypy>=1.11,<2",
   "types-PyYAML>=6,<7",
+  "types-openpyxl>=3.1,<4",
   "pillow>=10,<13",
+  "formulas>=1.2,<2",
 ]
 
 [project.scripts]
@@ -56,5 +59,5 @@ warn_unused_ignores = true
 files = ["src"]
 
 [[tool.mypy.overrides]]
-module = ["sklearn.*", "scipy.*", "pyreadstat.*", "matplotlib.*", "pandas.*"]
+module = ["sklearn.*", "scipy.*", "pyreadstat.*", "matplotlib.*", "pandas.*", "formulas.*"]
 ignore_missing_imports = true
