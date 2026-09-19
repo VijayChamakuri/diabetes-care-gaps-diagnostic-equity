@@ -1,6 +1,6 @@
 # Runtime verification
 
-Commands run and what they returned. Environment: macOS on Apple silicon, `uv`, R 4.5 with the `survey` package, DuckDB 1.5.5, pandas 2.3.3, openpyxl 3.1.5. Date: 2026-09-19. All estimates are NHANES 2017-2018 public-use survey data, descriptive and not causal.
+Commands run and what they returned. Environment: macOS on Apple silicon, `uv`, R 4.6.1 with the `survey` package (4.5), DuckDB 1.5.5, pandas 2.3.3, openpyxl 3.1.5. Date: 2026-09-19. All estimates are NHANES 2017-2018 public-use survey data, descriptive and not causal.
 
 ## Clean clone, Python 3.11 and 3.12
 
