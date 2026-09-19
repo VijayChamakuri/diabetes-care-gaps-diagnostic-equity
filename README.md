@@ -28,7 +28,6 @@
 |---|---|
 | [Quality brief](reports/healthcare_quality_brief.md) | Two-page decision brief for care-gap monitoring. Every number is generated from `outputs/tables`. |
 | [Excel quality review](excel/README.md) | Seven-sheet workbook with live reconciliation formulas, filters and warning flags. No respondent rows. |
-| [Case study](docs/case_study.md) | How the methods, dashboard, workbook and brief fit together. |
 | [Privacy and governance](docs/privacy_and_governance.md) | What is and is not protected here, and what a production version would need. |
 | [Tableau data package](tableau/README.md) | Extracts and build guide only. No Tableau workbook exists. |
 | [Implementation status](docs/implementation_status.md) | Each acceptance criterion mapped to its evidence. |
@@ -185,7 +184,7 @@ excel/                 seven-sheet quality review workbook and its README
 reports/               generated stakeholder brief
 tableau/               data extracts, field dictionary and build guide (no workbook)
 scripts/               dashboard capture and workbook build
-docs/                  methods, data dictionary, privacy and governance, case study, implementation status
+docs/                  methods, data dictionary, privacy and governance, implementation status
 tests/                 unit, integration and end-to-end tests on a synthetic fixture
 ```
 
