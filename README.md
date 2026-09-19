@@ -1,6 +1,6 @@
 # Diabetes Care Gaps & Diagnostic Equity | NHANES 2017-2018
 
-[![CI](https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit/actions/workflows/ci.yml)
+[![CI](https://github.com/VijayChamakuri/diabetes-care-gaps-diagnostic-equity/actions/workflows/ci.yml/badge.svg)](https://github.com/VijayChamakuri/diabetes-care-gaps-diagnostic-equity/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue.svg)](pyproject.toml)
 
@@ -143,7 +143,7 @@ Intervals are wide and small groups are flagged. See the [calibration figure](ou
 ## Reproduce
 
 ```bash
-git clone https://github.com/VijayChamakuri/diabetes-diagnostic-bias-audit.git && cd diabetes-diagnostic-bias-audit
+git clone https://github.com/VijayChamakuri/diabetes-care-gaps-diagnostic-equity.git && cd diabetes-care-gaps-diagnostic-equity
 uv sync --extra dev
 uv run python -m nhanes_diabetes all
 ```
