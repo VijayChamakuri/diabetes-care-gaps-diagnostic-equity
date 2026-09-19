@@ -21,7 +21,7 @@ Each acceptance criterion for the NHANES repository, the evidence behind it and 
 | P0.2 Stakeholder brief | Done | `reports/healthcare_quality_brief.md`, `src/nhanes_diabetes/brief.py` |
 | P0.3 Privacy and governance | Done | `docs/privacy_and_governance.md` |
 | P0.4 BI artifact truth | Package done, workbook not built | `tableau/` (three extracts, field dictionary, calculated fields, build guide, QA checklist, README with the manual checkpoint). No workbook, no URL, no screenshot. |
-| P1 Recruiter case study | Done | `docs/case_study.md` |
+| P1 Recruiter case study | Removed at the owner's request | The README, brief and workbook guide already link the methods, dashboard and brief |
 | P1 GitHub topics | Done on the repository | healthcare-analytics, nhanes, survey-analysis, duckdb, sql, python, health-equity |
 | P1 Alternative HbA1c threshold sensitivity | Deferred | See below |
 
