@@ -25,6 +25,7 @@ def project(tmp_path_factory):
     shutil.copytree(REPO / "r", root / "r")
     (root / "configs").mkdir()
     shutil.copy(REPO / "configs" / "analysis.yml", root / "configs" / "analysis.yml")
+    shutil.copy(REPO / "configs" / "metric_dictionary.yml", root / "configs" / "metric_dictionary.yml")
     config.raw_dir.mkdir(parents=True)
     for name, frame in synthetic_raw(3000, seed=11).items():
         pyreadstat.write_xport(frame, str(config.raw_dir / f"{name}.xpt"), file_format_version=5)
@@ -134,6 +135,7 @@ def test_cli_stages_run_and_report_check_fails_on_drift(project, capsys) -> None
     (config.root / "README.md").write_text(template)
     root = ["--root", str(config.root)]
     assert main([*root, "report"]) == 0
+    assert main([*root, "excel"]) == 0
     assert main([*root, "report", "--check"]) == 0
     assert main([*root, "dashboard"]) == 0
     assert main([*root, "build-cohort"]) == 0
@@ -143,3 +145,19 @@ def test_cli_stages_run_and_report_check_fails_on_drift(project, capsys) -> None
         main([*root, "report", "--check"])
     with pytest.raises(SystemExit):
         main([*root, "no-such-command"])
+
+
+def test_workbook_brief_and_tableau_build_from_synthetic_outputs(project) -> None:
+    """The same code path as the real artifacts, on fixture outputs, with no real respondent data."""
+    from nhanes_diabetes import brief, tableau, workbook
+
+    config, _ = project
+    path = workbook.build_workbook(config)
+    assert workbook.verify_workbook(config, path) == []
+    values = workbook.formula_values(path)
+    assert not [k for k, v in values.items() if v in ("FAIL", "REVIEW")]
+    brief.write_brief(config)
+    assert brief.check_brief(config) == []
+    tableau.write_tableau(config)
+    assert tableau.check_tableau(config) == []
+    assert (config.root / "tableau" / "data" / "care_gap_summary.csv").exists()

@@ -1,4 +1,4 @@
-.PHONY: setup data cohort analyze crosscheck report dashboard all lint typecheck test check-readme clean
+.PHONY: setup data cohort analyze crosscheck report excel dashboard all lint typecheck test check-readme clean
 
 setup:
 	uv sync --extra dev
@@ -17,6 +17,9 @@ crosscheck:
 
 report:
 	uv run python -m nhanes_diabetes report
+
+excel:
+	uv run python scripts/build_excel_workbook.py
 
 dashboard:
 	uv run python -m nhanes_diabetes dashboard

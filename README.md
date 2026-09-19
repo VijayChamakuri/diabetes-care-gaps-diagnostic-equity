@@ -10,7 +10,7 @@
 
 ![Share of people meeting the HbA1c criterion who were never told they have diabetes, by group, with 95% intervals](outputs/figures/undiagnosis_by_group.png)
 
-**Dashboard:** open [`dashboard/index.html`](dashboard/index.html) in a browser (single offline file, three pages). Screenshots: [overview](dashboard/screenshots/01_care_gap_overview.png), [model tradeoffs](dashboard/screenshots/02_model_tradeoffs.png), [methods and data quality](dashboard/screenshots/03_methods_data_quality.png). A Tableau or Power BI version is not included.
+**Dashboard:** open [`dashboard/index.html`](dashboard/index.html) in a browser (single offline file, three pages). Screenshots: [overview](dashboard/screenshots/01_care_gap_overview.png), [model tradeoffs](dashboard/screenshots/02_model_tradeoffs.png), [methods and data quality](dashboard/screenshots/03_methods_data_quality.png). This is an HTML dashboard. There is no Tableau or Power BI workbook; a Tableau data package (extracts, build guide and QA checklist, no workbook) is in [`tableau/`](tableau/README.md).
 
 > **What this does not prove.** The undiagnosis gap is descriptive. It could reflect access to care, screening frequency, clinician behavior, insurance, or measurement, and this data cannot separate them. Nothing here shows clinician bias. The models are deliberately minimal comparisons of two labels, not clinical risk models, and are not ready for deployment. Every subgroup comparison except the one named in advance is exploratory.
 
@@ -21,6 +21,17 @@
 2. **With race excluded, the training label barely changes the primary age-and-sex model.** AUC against the HbA1c criterion is 0.758 for the diagnosed label and 0.756 for the HbA1c label (difference +0.001, 95% CI 0.000 to +0.003, bootstrap p = 0.156). Overall specificity cost +0.7 pp (95% CI -0.3 to +1.8 pp).
 3. **In this comparison the label matters when race is a model input.** With race included, the specificity cost is +10.0 pp for Non-Hispanic Black respondents (95% CI +8.6 to +11.2 pp) and -1.9 pp for Non-Hispanic White respondents (95% CI -3.7 to -0.1 pp).
 <!-- END generated:headline -->
+
+## Stakeholder artifacts
+
+| Artifact | What it is |
+|---|---|
+| [Quality brief](reports/healthcare_quality_brief.md) | Two-page decision brief for care-gap monitoring. Every number is generated from `outputs/tables`. |
+| [Excel quality review](excel/README.md) | Seven-sheet workbook with live reconciliation formulas, filters and warning flags. No respondent rows. |
+| [Case study](docs/case_study.md) | How the methods, dashboard, workbook and brief fit together. |
+| [Privacy and governance](docs/privacy_and_governance.md) | What is and is not protected here, and what a production version would need. |
+| [Tableau data package](tableau/README.md) | Extracts and build guide only. No Tableau workbook exists. |
+| [Implementation status](docs/implementation_status.md) | Each acceptance criterion mapped to its evidence. |
 
 ## What this means for decisions
 
@@ -148,7 +159,7 @@ uv sync --extra dev
 uv run python -m nhanes_diabetes all
 ```
 
-That command downloads and verifies the data, builds the cohort, runs the analysis, cross-checks against R when `Rscript` with the `survey` package is available, regenerates figures and the generated README blocks, and rebuilds the dashboard. Stages can be run alone: `download`, `build-cohort`, `analyze`, `crosscheck`, `report`, `dashboard`. Requires Python 3.11 or 3.12 and `uv`. Fixed seeds make every table reproducible. `make test` runs lint, type checks and tests; `make check-readme` fails if the README drifts from `outputs/tables`.
+That command downloads and verifies the data, builds the cohort, runs the analysis, cross-checks against R when `Rscript` with the `survey` package is available, regenerates figures, the generated README blocks, the quality brief and the Tableau extracts, builds the Excel workbook and rebuilds the dashboard. Stages can be run alone: `download`, `build-cohort`, `analyze`, `crosscheck`, `report`, `excel`, `dashboard`. Requires Python 3.11 or 3.12 and `uv`. Fixed seeds make every table reproducible. `make test` runs lint, type checks and tests. `make check-readme` fails if the README, the quality brief, the Tableau extracts or the workbook values drift from `outputs/tables`. The workbook alone is rebuilt with `make excel`.
 
 ## Limitations and ethics
 
@@ -158,18 +169,23 @@ That command downloads and verifies the data, builds the cohort, runs the analys
 - Bootstrap intervals for model metrics reflect survey-design variability on out-of-fold predictions, not refitting variability.
 - Small groups have wide intervals and are flagged rather than hidden. Other/Multiracial is a pooled category, not a population.
 - Using race as a predictor while auditing performance by race needs explicit justification; that is why it is a sensitivity analysis here.
+- This is care-gap monitoring on a public survey. It is not a certified HEDIS measure, not an analysis of EHR or claims data, and not a clinical deployment. No protected health information is involved. See [privacy and governance](docs/privacy_and_governance.md).
 
 ## Repository map
 
 ```text
-src/nhanes_diabetes/   download, cohort (SQL), survey, models, metrics, plots, report, dashboard, cli
+src/nhanes_diabetes/   download, cohort (SQL), survey, models, metrics, plots, report, brief, workbook, tableau, dashboard, cli
 sql/                   cohort, data quality, cohort validation, group summary
-configs/analysis.yml   every parameter in one place
+configs/               analysis.yml (every parameter) and metric_dictionary.yml (shared definitions)
 r/validation.R         independent survey-package check
-outputs/tables/        every number the README and dashboard cite
+outputs/tables/        every number the README, brief, workbook and dashboard cite
 outputs/figures/       PNG and SVG figures with alt text
 dashboard/             offline three-page dashboard and screenshots
-docs/                  methods, data dictionary
+excel/                 seven-sheet quality review workbook and its README
+reports/               generated stakeholder brief
+tableau/               data extracts, field dictionary and build guide (no workbook)
+scripts/               dashboard capture and workbook build
+docs/                  methods, data dictionary, privacy and governance, case study, implementation status
 tests/                 unit, integration and end-to-end tests on a synthetic fixture
 ```
 

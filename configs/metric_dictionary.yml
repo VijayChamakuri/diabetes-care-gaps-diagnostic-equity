@@ -1,0 +1,126 @@
+# Single source for metric definitions used by the Excel workbook, the stakeholder brief and the
+# Tableau field dictionary. No result values live here; values come from outputs/tables.
+banner: >-
+  NHANES 2017-2018 public-use survey data. Descriptive care-gap monitoring, not a certified quality
+  measure, not clinical guidance, and no respondent-level rows.
+
+population: >-
+  the US civilian non-institutionalized population aged 12 and older with an exam weight, a valid diabetes
+  questionnaire answer, a measured HbA1c and a known race and ethnicity group
+
+limitations:
+  - The undiagnosis gap is descriptive. It can reflect access to care, screening frequency, clinician behavior, insurance or measurement, and this data cannot separate them.
+  - HbA1c is one of three ADA diagnostic criteria. Fasting glucose is not used, and HbA1c can read high in some people with sickle cell trait.
+  - The models are minimal comparisons of two labels. They are not clinical risk models and are not ready for deployment.
+  - Only the Non-Hispanic Black versus Non-Hispanic White comparison was named in advance. Every other subgroup comparison is exploratory and carries a Holm-adjusted p-value.
+  - Small groups have wide intervals. A group with a small effective sample size is flagged, not hidden.
+  - This is public research data, not an EHR extract. It is care-gap monitoring inspired by quality measurement, not a certified HEDIS measure.
+
+metrics:
+  - id: undiagnosed_share
+    name: Undiagnosed share
+    definition: Weighted share of people meeting the HbA1c criterion who were never told by a doctor that they have diabetes.
+    numerator: Respondents with HbA1c at or above the threshold who answered no to "a doctor told you that you have diabetes" (DIQ010 = 2), weighted by WTMEC2YR.
+    denominator: Respondents with HbA1c at or above the threshold (LBXGH >= 6.5), weighted by WTMEC2YR.
+    exclusions: No valid diabetes answer (refused, do not know, missing); borderline answers (DIQ010 = 3) in the main analysis; HbA1c not measured; unknown race and ethnicity.
+    unit: Proportion, shown as a percentage. Interval is a 95% logit interval on design degrees of freedom.
+    source: outputs/tables/undiagnosis_estimates.csv (estimate, ci_low_logit, ci_high_logit)
+
+  - id: weighted_undiagnosed_people
+    name: People with undiagnosed diabetes, weighted
+    definition: Survey-weighted count of people meeting the HbA1c criterion who were never told they have diabetes.
+    numerator: Sum of WTMEC2YR over HbA1c-positive respondents who answered no to being told they have diabetes.
+    denominator: Not applicable (a weighted count).
+    exclusions: Same as undiagnosed share.
+    unit: People represented by the survey weights. No interval is reported.
+    source: outputs/tables/group_summary.csv (weighted_undiagnosed)
+
+  - id: undiagnosed_gap
+    name: Undiagnosed share difference versus reference group
+    definition: Undiagnosed share of a group minus the undiagnosed share of the reference group (Non-Hispanic White).
+    numerator: Group undiagnosed share minus reference undiagnosed share, from a joint linearization of the two ratios.
+    denominator: Not applicable (a difference); the ratio column divides the two shares.
+    exclusions: Same as undiagnosed share.
+    unit: Percentage points, shown as a percentage. Only the Non-Hispanic Black comparison is confirmatory; the others are exploratory with Holm-adjusted p-values.
+    source: outputs/tables/undiagnosis_contrasts.csv (difference, ci_low, ci_high, p_value, p_value_holm)
+
+  - id: effective_n
+    name: Effective sample size
+    definition: Kish effective sample size of the HbA1c-positive respondents in a group, which shrinks when weights are unequal.
+    numerator: (sum of weights) squared.
+    denominator: Sum of squared weights.
+    exclusions: Same as undiagnosed share.
+    unit: Respondents. A group with fewer than 30 respondents or an effective n under 30 carries a small-sample warning.
+    source: outputs/tables/undiagnosis_estimates.csv (effective_n_kish, small_n_warning)
+
+  - id: auc
+    name: AUC against the HbA1c criterion
+    definition: Weighted area under the ROC curve of out-of-fold predictions, scored against the HbA1c criterion.
+    numerator: Not applicable.
+    denominator: Not applicable.
+    exclusions: Same cohort as undiagnosed share, but all cohort respondents (HbA1c-positive and negative).
+    unit: Area under the curve, 0.5 to 1. Interval is a Rao-Wu rescaled PSU bootstrap.
+    source: outputs/tables/auc.csv (auc, ci_low, ci_high)
+
+  - id: auc_difference
+    name: AUC difference between labels
+    definition: AUC of the model trained on the diagnosed label minus AUC of the model trained on the HbA1c label, both scored against the HbA1c criterion.
+    numerator: Not applicable.
+    denominator: Not applicable.
+    exclusions: Same as AUC.
+    unit: AUC points. Interval and p-value come from a paired bootstrap.
+    source: outputs/tables/auc_difference.csv
+
+  - id: sensitivity
+    name: Sensitivity
+    definition: Weighted share of HbA1c-positive respondents the model flags at its cross-validated threshold.
+    numerator: Weighted HbA1c-positive respondents flagged by the model.
+    denominator: Weighted HbA1c-positive respondents.
+    exclusions: Same as AUC. The threshold is chosen inside each training fold, never on the held-out fold.
+    unit: Proportion, shown as a percentage.
+    source: outputs/tables/subgroup_metrics.csv (sensitivity, sensitivity_ci_low, sensitivity_ci_high)
+
+  - id: specificity
+    name: Specificity
+    definition: Weighted share of HbA1c-negative respondents the model does not flag.
+    numerator: Weighted HbA1c-negative respondents not flagged by the model.
+    denominator: Weighted HbA1c-negative respondents.
+    exclusions: Same as AUC.
+    unit: Proportion, shown as a percentage.
+    source: outputs/tables/subgroup_metrics.csv (specificity, specificity_ci_low, specificity_ci_high)
+
+  - id: false_positive_rate
+    name: False-positive rate
+    definition: One minus specificity. The share of HbA1c-negative respondents the model would flag for follow-up.
+    numerator: Weighted HbA1c-negative respondents flagged by the model.
+    denominator: Weighted HbA1c-negative respondents.
+    exclusions: Same as AUC.
+    unit: Proportion, shown as a percentage. Computed as a live formula in the workbook.
+    source: outputs/tables/specificity_cost.csv (1 - specificity_diagnosed, 1 - specificity_hba1c)
+
+  - id: specificity_cost
+    name: Specificity cost of the HbA1c label
+    definition: Specificity of the model trained on the diagnosed label minus specificity of the model trained on the HbA1c label. Positive means more false positives when training on the HbA1c label.
+    numerator: Not applicable.
+    denominator: Not applicable.
+    exclusions: Same as AUC.
+    unit: Percentage points, shown as a percentage. Interval is a paired bootstrap.
+    source: outputs/tables/specificity_cost.csv (cost, ci_low, ci_high)
+
+  - id: holm_adjusted_p
+    name: Holm-adjusted p-value
+    definition: p-value of a group comparison after Holm adjustment across the five comparisons with the reference group.
+    numerator: Not applicable.
+    denominator: Not applicable.
+    exclusions: Same as undiagnosed share.
+    unit: Probability. A group comparison is labelled exploratory unless it is the pre-specified contrast.
+    source: outputs/tables/undiagnosis_contrasts.csv (p_value_holm, analysis_type)
+
+  - id: missingness
+    name: Missingness share
+    definition: Share of respondents in a group with no valid value for an input variable.
+    numerator: Respondents in the group with the variable missing (refused, do not know, not asked or blank).
+    denominator: Respondents in the group in the analysis cohort.
+    exclusions: None.
+    unit: Proportion, shown as a percentage. Computed as a live formula in the workbook.
+    source: outputs/tables/missingness_by_group.csv
