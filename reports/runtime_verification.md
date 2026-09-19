@@ -53,4 +53,7 @@ The test `test_guarded_terms_only_appear_in_denials` searches the README, docs, 
 
 - No Tableau workbook exists, so nothing was checked in Tableau.
 - The alternative HbA1c threshold sensitivity is deferred for lack of a clinical source (see `docs/implementation_status.md`).
-- The result of the hosted GitHub Actions run is recorded in the pull request.
+
+## Hosted CI (GitHub Actions)
+
+On the pull request branch, all three jobs passed: lint, types and tests on Python 3.11 and on Python 3.12 (including `make check-readme`), and the real-data job. The real-data job installed R and the `survey` package, downloaded and verified the CDC files, ran the full pipeline including the R cross-check, and `git diff` of the README, the undiagnosis estimates, the R cross-check table and the Tableau extracts against the committed versions was empty. The published numbers therefore reproduce from the CDC files on a clean machine.
