@@ -10,6 +10,8 @@
 
 ![Share of people meeting the HbA1c criterion who were never told they have diabetes, by group, with 95% intervals](outputs/figures/undiagnosis_by_group.png)
 
+**Open first:** [HTML dashboard screenshot](dashboard/screenshots/01_care_gap_overview.png) · [Quality brief](reports/healthcare_quality_brief.md) · [Excel quality review](excel/README.md) · [Methods](docs/methods.md) · [Limitations and ethics](#limitations-and-ethics)
+
 **Dashboard:** open [`dashboard/index.html`](dashboard/index.html) in a browser (single offline file, three pages). Screenshots: [overview](dashboard/screenshots/01_care_gap_overview.png), [model tradeoffs](dashboard/screenshots/02_model_tradeoffs.png), [methods and data quality](dashboard/screenshots/03_methods_data_quality.png). This is an HTML dashboard. There is no Tableau or Power BI workbook; a Tableau data package (extracts, build guide and QA checklist, no workbook) is in [`tableau/`](tableau/README.md).
 
 > **What this does not prove.** The undiagnosis gap is descriptive. It could reflect access to care, screening frequency, clinician behavior, insurance, or measurement, and this data cannot separate them. Nothing here shows clinician bias. The models are deliberately minimal comparisons of two labels, not clinical risk models, and are not ready for deployment. Every subgroup comparison except the one named in advance is exploratory.
